@@ -1,6 +1,7 @@
 from data import proprietes
 from data import cases
 
+
 class Propriete:
 
 
@@ -8,6 +9,7 @@ class Propriete:
         # index est le numéro de case sur le plateau
         p = proprietes[index]
         self.nom = p["nom"]
+        self.prix = p["prix"]
         self.loyer = p["loyer"]
         self.hypotheque = p["hypotheque"]
         self.maison = p["maison"]
@@ -17,7 +19,8 @@ class Propriete:
     
     def fiche(self):
         print (
-            "Nom:", self.nom,
+            "\nNom:", self.nom,
+            "\nPrix:", self.prix,
             "\nLoyers:", self.loyer,
             "\nValeur hypothèque:", self.hypotheque,
             "\nPrix d'une maison:", str(self.maison),
