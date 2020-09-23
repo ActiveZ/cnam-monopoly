@@ -92,11 +92,68 @@ cases = {
     49:"Vert",                   # 31 + 32 + 34 (49)
     50:"Bleu foncé"              # 37 + 39 (50)
 }
+compagnies = {
+    12 : {
+        "nom": "Compagnie de distribution d'électricité",
+        "prix": 150,
+        "hypotheque":75,
+        "couleur": 42,
+        "proprietaire": ""
+    },
+    
+    28: {
+        "nom": "Compagnie de distribution des eaux",
+        "prix": 150,
+        "hypotheque":75,
+        "couleur": 42,
+        "proprietaire": ""
+    }
+}
+
+
+gares = {
+    5: {
+        "nom": "Gare Montparnasse",
+        "prix": 200,
+        "loyer": [25,50,100,200],
+        "hypotheque":100,
+        "couleur": 41,
+        "proprietaire": ""
+    }, 
+        
+    15: {
+        "nom": "Gare de Lyon",
+        "prix": 200,
+        "loyer": [25,50,100,200],
+        "hypotheque":100,
+        "couleur": 41,
+        "proprietaire": ""
+    },
+
+    25: {
+        "nom": "Gare du Nord",
+        "prix": 200,
+        "loyer": [25,50,100,200],
+        "hypotheque":100,
+        "couleur": 41,
+        "proprietaire": ""
+    },
+        
+    35: {
+        "nom": "Gare Saint-Lazare",
+        "prix": 200,
+        "loyer": [25,50,100,200],
+        "hypotheque":100,
+        "couleur": 41,
+        "proprietaire": ""
+    }
+}
 
 
 proprietes = {
     1: {
         "nom": "Boulevard de Belleville",
+        "prix": 60,
         "loyer": [2,10,30,90,160,250],
         "hypotheque":30,
         "maison":50,
@@ -106,6 +163,7 @@ proprietes = {
 
     3: {
         "nom": "Rue Lecourbe",
+        "prix": 60,
         "loyer": [4,20,60,180,320,450],
         "hypotheque":30,
         "maison":50,
@@ -113,16 +171,9 @@ proprietes = {
         "proprietaire": ""
     },
 
-    5: {
-        "nom": "Gare Montparnasse",
-        "loyer": [25,50,100,200],
-        "hypotheque":100,
-        "couleur": 41,
-        "proprietaire": ""
-    }, 
-
     6: {
         "nom": "Rue Vaugirard",
+        "prix": 100,
         "loyer": [6,30,90,270,400,550],
         "hypotheque":50,
         "maison":50,
@@ -132,6 +183,7 @@ proprietes = {
 
     8: {
         "nom": "Rue de Courcelles",
+        "prix": 100,
         "loyer": [6,30,90,270,400,550],
         "hypotheque":50,
         "maison":50,
@@ -141,6 +193,7 @@ proprietes = {
     
     9: {
         "nom": "Avenue de la République",
+        "prix": 120,
         "loyer": [8,40,100,300,450,600],
         "hypotheque":60,
         "maison":50,
@@ -150,23 +203,17 @@ proprietes = {
     
     11: {
         "nom": "Boulevard de la Villette",
+        "prix": 140,
         "loyer": [10,50,150,450,625,750],
         "hypotheque":70,
         "maison":100,
         "couleur": 45,
         "proprietaire": ""
     },
-        
-    12 : {
-        "nom": "Compagnie de distribution d'électricité",
-        "loyer": [],
-        "hypotheque":75,
-        "couleur": 42,
-        "proprietaire": ""
-    },
 
     13: {
         "nom": "Avenue de Neuilly",
+        "prix": 140,
         "loyer": [10,50,150,450,625,750],
         "hypotheque":70,
         "maison":100,
@@ -176,23 +223,17 @@ proprietes = {
     
     14: {
         "nom": "Rue de Paradis",
+        "prix": 160,
         "loyer": [12,60,180,500,700,900],
         "hypotheque":80,
         "maison":100,
         "couleur": 45,
         "proprietaire": ""
     },
-        
-    15: {
-        "nom": "Gare de Lyon",
-        "loyer": [25,50,100,200],
-        "hypotheque":100,
-        "couleur": 41,
-        "proprietaire": ""
-    },  
 
     16: {
         "nom": "Avenue Mozart",
+        "prix": 180,
         "loyer": [14,70,200,550,750,950],
         "hypotheque":90,
         "maison":100,
@@ -202,6 +243,7 @@ proprietes = {
     
     18: {
         "nom": "Boulevard St Michel",
+        "prix": 180,
         "loyer": [14,70,200,550,750,950],
         "hypotheque":90,
         "maison":100,
@@ -211,6 +253,7 @@ proprietes = {
     
     19: {
         "nom": "Place Pigalle",
+        "prix": 200,
         "loyer": [16,80,220,600,800,1000],
         "hypotheque":100,
         "maison":100,
@@ -220,6 +263,7 @@ proprietes = {
 
     21: {
         "nom": "Avenue Matignon",
+        "prix": 220,
         "loyer": [18,90,250,700,875,1050],
         "hypotheque":110,
         "maison":150,
@@ -229,6 +273,7 @@ proprietes = {
     
     23: {
         "nom": "Boulevard Malesherbes",
+        "prix": 220,
         "loyer": [18,90,250,700,875,1050],
         "hypotheque":110,
         "maison":150,
@@ -238,6 +283,7 @@ proprietes = {
     
     24: {
         "nom": "Avenue Henri Martin",
+        "prix": 240,
         "loyer": [20,100,300,750,925,1100],
         "hypotheque":120,
         "maison":150,
@@ -245,16 +291,9 @@ proprietes = {
         "proprietaire": ""
     },       
 
-    25: {
-        "nom": "Gare du Nord",
-        "loyer": [25,50,100,200],
-        "hypotheque":100,
-        "couleur": 41,
-        "proprietaire": ""
-    },   
-
     26: {
         "nom": "Faubourg St Honoré",
+        "prix": 260,
         "loyer": [22,110,330,800,975,1150],
         "hypotheque":130,
         "maison":150,
@@ -264,6 +303,7 @@ proprietes = {
 
     27: {
         "nom": "Place de la Bourse",
+        "prix": 260,
         "loyer": [22,110,330,800,975,1150],
         "hypotheque":130,
         "maison":150,
@@ -271,16 +311,9 @@ proprietes = {
         "proprietaire": ""
     },
           
-    28: {
-        "nom": "Compagnie de distribution des eaux",
-        "loyer": [],
-        "hypotheque":75,
-        "couleur": 42,
-        "proprietaire": ""
-    },
-
     29: {
         "nom": "Rue de la Fayette",
+        "prix": 280,
         "loyer": [24,120,360,850,1025,1200],
         "hypotheque":140,
         "maison":150,
@@ -290,6 +323,7 @@ proprietes = {
     
     31: {
         "nom": "Avenue de Breteuil",
+        "prix": 300,
         "loyer": [26,130,390,900,1100,1275],
         "hypotheque":150,
         "maison":200,
@@ -299,6 +333,7 @@ proprietes = {
         
     32: {
         "nom": "Avenue Foch",
+        "prix": 300,
         "loyer": [26,130,390,900,1100,1275],
         "hypotheque":150,
         "maison":200,
@@ -308,23 +343,17 @@ proprietes = {
         
     34: {
         "nom": "Boulevard des Capucines",
+        "prix": 320,
         "loyer": [28,150,450,1000,1200],
         "hypotheque":160,
         "maison":200,
         "couleur": 49,
         "proprietaire": ""
-    },    
-        
-    35: {
-        "nom": "Gare Saint-Lazare",
-        "loyer": [25,50,100,200],
-        "hypotheque":100,
-        "couleur": 41,
-        "proprietaire": ""
-    },    
+    },      
 
     37: {
         "nom": "Avenue des Champs-Elisées",
+        "prix": 350,
         "loyer": [35,175,500,1100,1300,1500],
         "hypotheque":175,
         "maison":200,
@@ -334,6 +363,7 @@ proprietes = {
         
     39: {
         "nom": "Rue de la Paix",
+        "prix": 400,
         "loyer": [50,200,600,1400,1700,2000],
         "hypotheque":200,
         "maison":200,
