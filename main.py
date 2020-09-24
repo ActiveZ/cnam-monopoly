@@ -17,6 +17,8 @@ from propriete import Propriete
 from gare import Gare
 from compagnie import Compagnie
 
+from carte_chance import Carte_chance
+from carte_communaute import Carte_communaute
 
 os.system('cls')
 os.system('clear')
@@ -33,6 +35,7 @@ j = Joueur()
 
 # for p in Propriete:
 #     print(p)
+
 def listing():
     for i in range(1, 40):
         # print("\ni:", i)
@@ -46,12 +49,24 @@ def listing():
             g = Gare(i)
             g.fiche()
 
+
+def chance():
+    carte_chance = Carte_chance()
+    for i in range(len(carte_chance.jeu_carte)): carte_chance.tirer_carte()
+
+def communaute():
+    carte_communaute = Carte_communaute()
+    for i in range(len(carte_communaute.jeu_carte)): carte_communaute.tirer_carte()
+
 #"""""""""""""""""""""""" MAIN """"""""""""""""""""""""""""""""""""""""
 
 # listing()
-while input("Souhaitez-vous quitter la partie (o/N) ? ") != "o":
-    j.jouer()
 
+# while input("Souhaitez-vous quitter la partie (o/N) ? ") != "o":
+#     j.jouer()
+
+chance()
+communaute()
     
 
 
