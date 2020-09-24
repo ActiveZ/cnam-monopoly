@@ -24,6 +24,9 @@ os.system('cls')
 os.system('clear')
 
 j = Joueur()
+carte_chance = Carte_chance()
+carte_communaute = Carte_communaute()
+
 
 # p = Propriete(39)
 
@@ -50,23 +53,22 @@ def listing():
             g.fiche()
 
 
-def chance():
-    carte_chance = Carte_chance()
+def chance(): 
     for i in range(len(carte_chance.jeu_carte)): carte_chance.tirer_carte()
 
-def communaute():
-    carte_communaute = Carte_communaute()
+def communaute(): 
     for i in range(len(carte_communaute.jeu_carte)): carte_communaute.tirer_carte()
 
 #"""""""""""""""""""""""" MAIN """"""""""""""""""""""""""""""""""""""""
 
 # listing()
 
-# while input("Souhaitez-vous quitter la partie (o/N) ? ") != "o":
-#     j.jouer()
+# chance()
+# communaute()
 
-chance()
-communaute()
+while input("Souhaitez-vous quitter la partie (o/N) ? ") != "o":
+    j.jouer()
+
     
 
 
