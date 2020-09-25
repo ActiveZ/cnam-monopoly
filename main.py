@@ -1,6 +1,6 @@
 
 # TODO
-# mélange des cartes
+# 
 #
 #
 #
@@ -62,7 +62,7 @@ def communaute():
 
 #"""""""""""""""""""""""" MAIN """"""""""""""""""""""""""""""""""""""""
 
-# listing()
+listing()
 
 # chance()
 # communaute()
