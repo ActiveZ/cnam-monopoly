@@ -81,9 +81,9 @@ class Joueur:
             print ("Taxe de luxe: 100 €")
             self.paye(100,-1) 
 
-        elif self.position in [7,22,36]: self.chance(self.index_joueur)
+        elif self.position in [7,22,36]: self.chance(self.index_joueur) #case carte chance
 
-        elif self.position in [2,17,23]: self.communaute(self.index_joueur)
+        elif self.position in [2,17,23]: self.communaute(self.index_joueur) #case caisse de communauté
 
         else: # pour debug
             print("Erreur de case")
