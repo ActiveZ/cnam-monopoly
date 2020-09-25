@@ -62,7 +62,7 @@ def communaute():
 
 #"""""""""""""""""""""""" MAIN """"""""""""""""""""""""""""""""""""""""
 
-listing()
+# listing()
 
 # chance()
 # communaute()

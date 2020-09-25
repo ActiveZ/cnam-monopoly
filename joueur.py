@@ -83,7 +83,7 @@ class Joueur:
 
         elif self.position in [7,22,36]: self.chance(self.index_joueur) #case carte chance
 
-        elif self.position in [2,17,23]: self.communaute(self.index_joueur) #case caisse de communauté
+        elif self.position in [2,17,33]: self.communaute(self.index_joueur) #case caisse de communauté
 
         else: # pour debug
             print("Erreur de case")
