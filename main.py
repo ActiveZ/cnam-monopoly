@@ -1,3 +1,4 @@
+
 # TODO
 # mélange des cartes
 #
@@ -21,7 +22,7 @@ from carte_chance import Carte_chance
 from carte_communaute import Carte_communaute
 
 os.system('cls')
-os.system('clear')
+# os.system('clear')
 
 j = Joueur()
 carte_chance = Carte_chance()
