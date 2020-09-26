@@ -1,75 +1,27 @@
-
 # TODO
 # 
-#
-#
-#
-#
 
 import os
-# from donnees import *
-from joueur import Joueur
-
-from data import proprietes
-from data import gares
-from data import compagnies
-
-from propriete import Propriete
-from gare import Gare
-from compagnie import Compagnie
-
-from carte_chance import Carte_chance
-from carte_communaute import Carte_communaute
-
-os.system('cls')
-# os.system('clear')
-
-j = Joueur()
-carte_chance = Carte_chance()
-carte_communaute = Carte_communaute()
+from plateau import Game_board
 
 
-# p = Propriete(39)
+os.system('cls') # windows
+os.system('clear') # linux
 
-# for i in range(100): print("Dés:", j.lance_de(), "n:", j.nb_double)
-# for i in range(100): j.lance_de()
-
-
-# p.fiche()
-
-# for p in Propriete:
-#     print(p)
-
-def listing():
-    for i in range(1, 40):
-        # print("\ni:", i)
-        if i in proprietes:
-            p = Propriete(i)
-            p.fiche()
-        elif i in compagnies:
-            c = Compagnie(i)
-            c.fiche()
-        elif i in gares:
-            g = Gare(i)
-            g.fiche()
-
-
-def chance(): 
-    for i in range(len(carte_chance.jeu_carte)): carte_chance.tirer_carte()
-
-def communaute(): 
-    for i in range(len(carte_communaute.jeu_carte)): carte_communaute.tirer_carte()
 
 #"""""""""""""""""""""""" MAIN """"""""""""""""""""""""""""""""""""""""
 
-listing()
+# instanciation du plateau
+game_board = Game_board()
 
-# chance()
-# communaute()
+# game_board.list_compagnies()
+# game_board.list_gares()
+# game_board.list_proprietes()
+# game_board.list_all()
+# game_board.list_chance()
+# game_board.list_communaute()
+# exit()
 
-while input("Souhaitez-vous quitter la partie (o/N) ? ") != "o":
-    j.jouer()
-
-    
-
+while input("***************************************\nSouhaitez-vous quitter la partie (o/N) ? ") != "o":
+    game_board.play()
 
