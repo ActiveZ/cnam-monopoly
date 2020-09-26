@@ -18,6 +18,9 @@ class Game_board:
 
     # constructeur
     def __init__(self):
+        self.nb_maison_dispo = 32
+        self.nb_hotel_dispo = 12
+
         self.dice = Dice()
 
         # instanciation des cartes
