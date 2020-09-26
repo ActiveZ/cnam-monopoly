@@ -25,36 +25,19 @@ class Joueur:
         self.nb_double = 0
         self.nom_joueur = "joueur" + str(Joueur.nb_joueur)
 
-
-    # tirage du dé
-    def lance_de(self):
-        d1 = randint(1,6)
-        d2 = randint(1,6)
-        # ajoute 1 à nb_double si tire 1 double et raz sinon
-        self.nb_double = 0 if d1 != d2 else self.nb_double + 1
-
-        print(self.nom_joueur, "lance les dés et fait",d1, "et", d2, "double:", self.nb_double)
-        if self.nb_double == 3:
-            print("En prison !")
-            self.nb_double = 0
-        return d1 + d2
-
     
-    def jouer(self):
+    def go(self):
         if self.position == 40: # joueur en prison
             self.prison()
             return
 
-
-        self.position += self.lance_de()
-
-        if self.position > 39:
-            self.position -= 40 # case départ = 0
-            self.case_depart()
-
-
         # analyse de la case d'arrivée
-        if self.position in proprietes: # terrain
+
+        if self.position == 0:# case départ = 0
+            self.argent += 200
+            print("Vous avez reçu 200 € !")
+
+        elif self.position in proprietes: # terrain
             p = Propriete(self.position)
             p.fiche()
         
@@ -80,35 +63,25 @@ class Joueur:
         elif self.position == 38: # taxe luxe
             print ("Taxe de luxe: 100 €")
             self.paye(100,-1) 
+            
+        elif self.position in [7,22,36,2,17,33]: pass # case caisse de communauté ou chance
 
-        elif self.position in [7,22,36]: self.chance(self.index_joueur) #case carte chance
+        # elif self.position in [7,22,36]: self.chance(self.index_joueur) #case carte chance
 
-        elif self.position in [2,17,33]: self.communaute(self.index_joueur) #case caisse de communauté
+        # elif self.position in [2,17,33]: self.communaute(self.index_joueur) #case caisse de communauté
 
         else: # pour debug
             print("Erreur de case")
             exit()
 
 
-    def case_depart(self):
-        self.argent += 200
-        print("Vous avez reçu 200 € !")
-
 
     def prison(self):
         pass
 
-    def paye(self, montant, beneficiaire): # beneficiaire -1 => banque, sinon, index joueur
+
+    def paye(self, montant, beneficiaire = None): # beneficiaire = none => banque, sinon => joueur
         if self.argent >= montant:
             self.argent -= montant
         else:
             pass
-
-
-    def chance(self, index_joueur):
-        # carte_chance.tirer_carte()
-        print("Tirez une carte 'Chance'")
-
-
-    def communaute(self, index_joueur):
-        print("Tirez une carte 'Caisse de Communauté")
