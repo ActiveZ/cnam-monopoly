@@ -1,4 +1,3 @@
-# gérer si la carte libéré de prison est avec un joueur lors de init carte
 
 from data import carte_chance
 from random import shuffle
@@ -18,13 +17,53 @@ class Carte_chance:
         # print("\nNouveau jeu cartes chance\n")
 
 
-    def tirer_carte(self, joueur):
+    def tirer_carte(self, j):
         if len(self.jeu_carte) == 0: self._init_carte()
 
         carte = self.jeu_carte.pop(len(self.jeu_carte)-1)
         print("Tirez une carte 'Chance'\n", carte[0])
-        # print(carte[0])
-        if int(carte[1]) > 0: # rapporte de l'argent
-            joueur.argent += carte[1]
-        if int(carte[1] < 0): # perd de l'argent
-            joueur.paye(-carte[1])
+        if str(carte[1]).isalpha():
+            if carte[1] == "reparationA": self._reparation(j, 40, 115) # reparation1 ne passe pas isalpha
+            elif carte[1] == "reparationB": self._reparation(j, 25, 100)
+            elif carte[1] == "depart":
+                j.position = 0
+                j.replay = True
+            elif carte[1] == "paix":
+                j.position = 39
+                j.replay = True
+            elif carte[1] == "henriMartin": # le _ ne passe pas le test isalpha
+                if j.position > 24:
+                    print("Vous passez par la case départ, vous recevez 200 €")
+                    j.cash += 200
+                j.position = 24
+                j.replay = True
+            elif carte[1] == "vilette":
+                if j.position > 11:
+                    print("Vous passez par la case départ, vous recevez 200 €")
+                    j.cash += 200
+                j.position = 11
+                j.replay = True
+            elif carte[1] == "lyon":
+                if j.position > 15:
+                    print("Vous passez par la case départ, vous recevez 200 €")
+                    j.cash += 200
+                j.position = 15
+                j.replay = True
+            elif carte[1] == "prison":
+                j.position = 40
+            elif carte[1] == "recul":
+                j.position -= 3
+                j.replay = True
+            elif carte[1] == "libere":
+                j.libere += 1
+                self.libere_prison_dispo = False
+                
+        else:
+            if carte[1] > 0: # rapporte de l'argent
+                j.cash += carte[1]
+            elif carte[1] < 0: # perd de l'argent
+                j.payer(-carte[1])
+
+
+    def _reparation(self, j, prix_maison, prix_hotel):
+        pass

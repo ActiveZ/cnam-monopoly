@@ -32,21 +32,90 @@ class Game_board:
         self.gares = gares
         self.compagnies = compagnies
 
-        self.j1 = Joueur()
-        print("Début du jeu")
+        # self.nb_joueur = 2
+        self.joueurs = []
 
 
+    def init_game(self):
+        print("************************************\n" + 
+             "* BIENVENUE A LA TABLE DE MONOPOLY *\n" +
+             "************************************\n")
+
+        j = Joueur()
+        self.joueurs.append(j)
+        j = Joueur()
+        self.joueurs.append(j)
+        print("Il y a", len(self.joueurs), "joueurs à la table\n")
+        while len(self.joueurs) < 4 and input("Souhaitez-vous ajouter un nouveau joueur (max = 4) (o/N) ? ").lower() == "o":
+            j = Joueur()
+            self.joueurs.append(j)
+            print("Il y a", len(self.joueurs), "joueurs à la table\n")
+        print("Début de la partie\n")
+        for j in self.joueurs:
+            j.fiche()
+        
+        
     def play(self):
-        print("j1:", self.j1.nom_joueur, "argent:", self.j1.argent, "position:", self.j1.position)
-        if self.j1.position != 40: # joueur est en prison
-            self.dice.lancer(self.j1)
-            if self.j1.position in [7,22,36]: self.carte_chance.tirer_carte(self.j1) #case carte chance
-            if self.j1.position in [2,17,33]: self.carte_communaute.tirer_carte(self.j1) #case caisse de communauté
-
-        self.j1.go()
-        print("j1:", self.j1.nom_joueur, "argent:", self.j1.argent, "position:", self.j1.position)
+        for j in self.joueurs:
+            if j.position != 40: # si joueur n'est pas en prison
+                j.go(self.dice.lancer(j))
+                self.case_arrivee(j)
+            j.fiche()
 
 
+    # analyse de la case d'arrivée
+    def case_arrivee(self, j): # joueur j
+        if j.position == 0: # case départ = 0
+            j.cash += 200
+            print("Vous avez reçu 200 € !")
+
+        elif j.position in [7,22,36]:
+            self.carte_chance.tirer_carte(j) # case carte chance
+            if j.replay:
+                j.replay = False
+                self.case_arrivee(j) # en cas de carte de déplacement
+
+        elif j.position in [2,17,33]: 
+            self.carte_communaute.tirer_carte(j, self.joueurs) # case caisse de communauté
+            if j.replay:
+                j.replay = False
+                self.case_arrivee(j) # en cas de carte de déplacement
+            if j.retire_chance:
+                j.retire_chance = False
+                self.carte_chance.tirer_carte(j) # si ne paye pas l'amende et préfere tirer chance
+
+        elif j.position in proprietes: # terrain
+            p = Propriete(j.position)
+            p.fiche()
+        
+        elif j.position in compagnies: # électricité/eau
+            c = Compagnie(j.position)
+            c.fiche()
+
+        elif j.position in gares: # gare
+            g = Gare(j.position)
+            g.fiche()
+
+        elif j.position in [0,10,20]: # case départ, simple visite, parc gratuit
+            if j.position == 0: print("Case départ")
+            elif j.position == 10: print("Simple visite")
+            elif j.position == 20: print("Parc gratuit")
+
+        elif j.position == 30: # allez en prison
+            print("Allez directement en prison")
+            j.position = 40
+
+        elif j.position  == 4: # impôts
+            print("Taxe sur le revenu: 200 €")
+            j.payer(200) 
+
+        elif j.position == 38: # taxe luxe
+            print ("Taxe de luxe: 100 €")
+            j.payer(100) 
+
+        else: # pour debug
+            print("Erreur de case")
+            exit()
 
 
 
