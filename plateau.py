@@ -70,7 +70,7 @@ class Game_board:
             print("Vous avez reçu 200 € !")
 
         elif j.position in [7,22,36]:
-            self.carte_chance.tirer_carte(j) # case carte chance
+            self.carte_chance.tirer_carte(j, self.proprietes) # case carte chance
             if j.replay:
                 j.replay = False
                 self.case_arrivee(j) # en cas de carte de déplacement

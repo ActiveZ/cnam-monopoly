@@ -98,7 +98,8 @@ compagnies = {
         "prix": 150,
         "hypotheque":75,
         "couleur": 42,
-        "proprietaire": ""
+        "proprietaire": 0, # index du joueur
+        "isHypotheque": False
     },
     
     28: {
@@ -106,7 +107,8 @@ compagnies = {
         "prix": 150,
         "hypotheque":75,
         "couleur": 42,
-        "proprietaire": ""
+        "proprietaire": 0,
+        "isHypotheque": False
     }
 }
 
@@ -118,7 +120,8 @@ gares = {
         "loyer": [25,50,100,200],
         "hypotheque":100,
         "couleur": 41,
-        "proprietaire": ""
+        "proprietaire": 0,
+        "isHypotheque": False
     }, 
         
     15: {
@@ -127,7 +130,8 @@ gares = {
         "loyer": [25,50,100,200],
         "hypotheque":100,
         "couleur": 41,
-        "proprietaire": ""
+        "proprietaire": 0,
+        "isHypotheque": False
     },
 
     25: {
@@ -136,7 +140,8 @@ gares = {
         "loyer": [25,50,100,200],
         "hypotheque":100,
         "couleur": 41,
-        "proprietaire": ""
+        "proprietaire": 0,
+        "isHypotheque": False
     },
         
     35: {
@@ -145,7 +150,8 @@ gares = {
         "loyer": [25,50,100,200],
         "hypotheque":100,
         "couleur": 41,
-        "proprietaire": ""
+        "proprietaire": 0,
+        "isHypotheque": False
     }
 }
 
@@ -158,9 +164,10 @@ proprietes = {
         "hypotheque":30,
         "prix_maison":50,
         "couleur": 43,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },
 
     3: {
@@ -170,9 +177,10 @@ proprietes = {
         "hypotheque":30,
         "prix_maison":50,
         "couleur": 43,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },
 
     6: {
@@ -182,9 +190,10 @@ proprietes = {
         "hypotheque":50,
         "prix_maison":50,
         "couleur": 44,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },
 
     8: {
@@ -194,9 +203,10 @@ proprietes = {
         "hypotheque":50,
         "prix_maison":50,
         "couleur": 44,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },        
     
     9: {
@@ -206,9 +216,10 @@ proprietes = {
         "hypotheque":60,
         "prix_maison":50,
         "couleur": 44,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },
     
     11: {
@@ -218,9 +229,10 @@ proprietes = {
         "hypotheque":70,
         "prix_maison":100,
         "couleur": 45,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },
 
     13: {
@@ -230,9 +242,10 @@ proprietes = {
         "hypotheque":70,
         "prix_maison":100,
         "couleur": 45,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },
     
     14: {
@@ -242,9 +255,10 @@ proprietes = {
         "hypotheque":80,
         "prix_maison":100,
         "couleur": 45,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },
 
     16: {
@@ -254,9 +268,10 @@ proprietes = {
         "hypotheque":90,
         "prix_maison":100,
         "couleur": 46,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },    
     
     18: {
@@ -266,9 +281,10 @@ proprietes = {
         "hypotheque":90,
         "prix_maison":100,
         "couleur": 46,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },    
     
     19: {
@@ -278,9 +294,10 @@ proprietes = {
         "hypotheque":100,
         "prix_maison":100,
         "couleur": 46,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },    
 
     21: {
@@ -290,9 +307,10 @@ proprietes = {
         "hypotheque":110,
         "prix_maison":150,
         "couleur": 47,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },    
     
     23: {
@@ -302,9 +320,10 @@ proprietes = {
         "hypotheque":110,
         "prix_maison":150,
         "couleur": 47,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },    
     
     24: {
@@ -314,9 +333,10 @@ proprietes = {
         "hypotheque":120,
         "prix_maison":150,
         "couleur": 47,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },       
 
     26: {
@@ -326,9 +346,10 @@ proprietes = {
         "hypotheque":130,
         "prix_maison":150,
         "couleur": 48,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },
 
     27: {
@@ -338,9 +359,10 @@ proprietes = {
         "hypotheque":130,
         "prix_maison":150,
         "couleur": 48,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },
           
     29: {
@@ -350,9 +372,10 @@ proprietes = {
         "hypotheque":140,
         "prix_maison":150,
         "couleur": 48,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },    
     
     31: {
@@ -362,9 +385,10 @@ proprietes = {
         "hypotheque":150,
         "prix_maison":200,
         "couleur": 49,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },    
         
     32: {
@@ -374,9 +398,10 @@ proprietes = {
         "hypotheque":150,
         "prix_maison":200,
         "couleur": 49,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },    
         
     34: {
@@ -386,9 +411,10 @@ proprietes = {
         "hypotheque":160,
         "prix_maison":200,
         "couleur": 49,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },      
 
     37: {
@@ -398,9 +424,10 @@ proprietes = {
         "hypotheque":175,
         "prix_maison":200,
         "couleur": 50,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     },    
         
     39: {
@@ -410,9 +437,10 @@ proprietes = {
         "hypotheque":200,
         "prix_maison":200,
         "couleur": 50,
-        "proprietaire": "",
+        "proprietaire": 0,
         "nb_maison": 0,
-        "nb_hotel": 0
+        "nb_hotel": 0,
+        "isHypotheque": False
     }
 }    
 

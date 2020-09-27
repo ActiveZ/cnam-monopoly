@@ -17,14 +17,14 @@ class Carte_chance:
         # print("\nNouveau jeu cartes chance\n")
 
 
-    def tirer_carte(self, j):
+    def tirer_carte(self, j, proprietes):
         if len(self.jeu_carte) == 0: self._init_carte()
 
         carte = self.jeu_carte.pop(len(self.jeu_carte)-1)
         print("Tirez une carte 'Chance'\n", carte[0])
         if str(carte[1]).isalpha():
-            if carte[1] == "reparationA": self._reparation(j, 40, 115) # reparation1 ne passe pas isalpha
-            elif carte[1] == "reparationB": self._reparation(j, 25, 100)
+            if carte[1] == "reparationA": self._reparation(j, 40, 115, proprietes) # reparation1 ne passe pas isalpha
+            elif carte[1] == "reparationB": self._reparation(j, 25, 100, proprietes)
             elif carte[1] == "depart":
                 j.position = 0
                 j.replay = True
@@ -65,5 +65,11 @@ class Carte_chance:
                 j.payer(-carte[1])
 
 
-    def _reparation(self, j, prix_maison, prix_hotel):
-        pass
+    def _reparation(self, j, prix_maison, prix_hotel, proprietes):
+        sum_maison = 0
+        sum_hotel = 0
+        for p in proprietes:
+            if j.index_joueur == p["proprietaire"]:
+                sum_maison += p["nb_maison"] * prix_maison
+                sum_hotel += p["nb_hotel"] * prix_hotel
+        j.payer(sum_hotel + sum_maison)
