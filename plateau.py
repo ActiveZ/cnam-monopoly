@@ -57,7 +57,7 @@ class Game_board:
         
     def play(self):
         for j in self.joueurs:
-            if j.position == 40: j.prison() # ttt du cas du joueur en prison
+            if j.position == 40: j.prison(self.carte_communaute, self.carte_communaute) # ttt du cas du joueur en prison
             else: # si joueur n'est pas en prison
                 j.go(self.dice.lancer(j))
                 self.case_arrivee(j)

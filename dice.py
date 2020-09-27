@@ -19,7 +19,7 @@ class Dice:
         if joueur.nb_double == 3:
             print("En prison !\n")
             joueur.nb_double = 0
-            return 40
+            return 40 # case prison
         else:
             return d1 + d2
 
