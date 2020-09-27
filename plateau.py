@@ -57,7 +57,7 @@ class Game_board:
         
     def play(self):
         for j in self.joueurs:
-            if j.position == 40: j.position = 10
+            if j.position == 40: j.position = 10 # pour debug
             if j.position != 40: # si joueur n'est pas en prison
                 j.go(self.dice.lancer(j))
                 self.case_arrivee(j)
@@ -71,13 +71,13 @@ class Game_board:
             print("Vous avez reçu 200 € !")
 
         elif j.position in [7,22,36]:
-            self.carte_chance.tirer_carte(j, self.proprietes) # case carte chance
+            self.carte_chance.tirer_carte(j, self.proprietes) # carte chance
             if j.replay:
                 j.replay = False
                 self.case_arrivee(j) # en cas de carte de déplacement
 
         elif j.position in [2,17,33]: 
-            self.carte_communaute.tirer_carte(j, self.joueurs) # case caisse de communauté
+            self.carte_communaute.tirer_carte(j, self.joueurs) # carte caisse de communauté
             if j.replay:
                 j.replay = False
                 self.case_arrivee(j) # en cas de carte de déplacement
@@ -169,10 +169,12 @@ class Game_board:
     # listing des cartes chance
     def list_chance(self): 
         print("****************\nListing cartes chance")
-        for i in range(len(self.carte_chance.jeu_carte)): print(self.carte_chance.jeu_carte.pop(len(self.carte_chance.jeu_carte)-1)[0])
+        # for i in range(len(self.carte_chance.jeu_carte)): print(self.carte_chance.jeu_carte.pop(len(self.carte_chance.jeu_carte)-1)[0])
+        for c in self.carte_chance.jeu_carte: print(self.carte_chance.jeu_carte[c])
 
 
     # listing des cartes caisse de communauté
     def list_communaute(self):
         print("****************\nListing cartes caisse de communauté")
-        for i in range(len(self.carte_communaute.jeu_carte)): print(self.carte_communaute.jeu_carte.pop(len(self.carte_communaute.jeu_carte)-1)[0])
+        # for i in range(len(self.carte_communaute.jeu_carte)): print(self.carte_communaute.jeu_carte.pop(len(self.carte_communaute.jeu_carte)-1)[0])
+        for c in self.carte_communaute.jeu_carte: print(self.carte_communaute.jeu_carte[c])

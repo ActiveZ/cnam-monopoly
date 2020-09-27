@@ -66,8 +66,7 @@ class Carte_chance:
 
 
     def _reparation(self, j, prix_maison, prix_hotel, proprietes):
-        sum_maison = 0
-        sum_hotel = 0
+        sum_maison = sum_hotel = 0
         for p in proprietes:
             if j.index_joueur == proprietes[p]["proprietaire"]:
                 sum_maison += p["nb_maison"] * prix_maison
