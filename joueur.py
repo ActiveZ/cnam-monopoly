@@ -16,6 +16,7 @@ class Joueur:
         self.retire_chance = False # pour le cas de l'amende ou retire une carte chance
         self.libere = 0 # carte libéré de prison: 1:chance, 2:communauté, 3: les deux
         self.tour_prison = 0 # nb de tour en prison
+        # self.libre = True # selon si en prison ou pas
     
     def go(self, dice): # avance de la valeur de dice
         if self.position == 40: # joueur en prison, ttt a part
@@ -27,17 +28,17 @@ class Joueur:
 
 
     def prison(self):
-        # self.position = 10
+        self.position = 10
+        return
         self.tour_prison += 1
+
         if self.tour_prison == 3:
             self.tour_prison = 0
-            
+
         else:    
             print(self.nom, ", vous êtes en prison. Tour:", self.tour_prison, "\n")
             txt = "Choisissez: 1) payer 50 € ou 2) faire un double "
             if self.libere: txt += "3) utiliser vortre carte 'libéré de prison'\n"
-
-        # pass
 
 
     def payer(self, montant, beneficiaire = None): # beneficiaire = none => banque, sinon => joueur

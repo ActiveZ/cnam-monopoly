@@ -21,5 +21,5 @@ class Compagnie:
             "\nPrix:", self.prix,
             "\nValeur hypothèque:", self.hypotheque,
             "\nCouleur de la carte:", cases[self.couleur],
-            "\nPropriétaire:", self.proprietaire
+            "\nPropriétaire:", self.proprietaire,"\n"
         )

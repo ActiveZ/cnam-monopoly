@@ -61,6 +61,10 @@ class Game_board:
             else: # si joueur n'est pas en prison
                 j.go(self.dice.lancer(j))
                 self.case_arrivee(j)
+                if j.nb_double > 0:  # le joueur a fait un double, il rejoue
+                    print(j.nom, "rejoue")
+                    j.go(self.dice.lancer(j))
+                    self.case_arrivee(j)
             j.fiche()
 
 

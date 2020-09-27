@@ -1,7 +1,7 @@
 carte_chance = {
     0:["Amende pour excès de vitesse", -15],
     1:["La banque vous verse un dividende de € 50",50],
-    2:["Vous êtes imposé pour les réparations de voirie a raison de : € 40 par maison et € 115 par hotel","reparationA"],
+    2:["Vous êtes imposé pour les réparations de voirie à raison de : € 40 par maison et € 115 par hotel","reparationA"],
     3:["Avancez jusqu'à la case Départ","depart"],
     4:["Payez les frais de scolarité : € 150",-150],
     5:["Rendez-vous Rue de la Paix","paix"],
