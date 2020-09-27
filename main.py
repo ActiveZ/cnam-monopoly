@@ -22,6 +22,7 @@ game_board = Game_board()
 # game_board.list_communaute()
 # exit()
 
+game_board.init_game()
+
 while input("***************************************\nSouhaitez-vous quitter la partie (o/N) ? ") != "o":
     game_board.play()
-

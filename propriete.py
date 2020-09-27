@@ -12,9 +12,11 @@ class Propriete:
         self.prix = p["prix"]
         self.loyer = p["loyer"]
         self.hypotheque = p["hypotheque"]
-        self.maison = p["maison"]
+        self.prix_maison = p["prix_maison"]
         self.couleur = p["couleur"]
         self.proprietaire = p["proprietaire"]
+        self.nb_maison = p["nb_maison"]
+        self.nb_hotel = p["nb_hotel"]
 
     
     def fiche(self):
@@ -23,8 +25,10 @@ class Propriete:
             "\nPrix:", self.prix,
             "\nLoyers:", self.loyer,
             "\nValeur hypothèque:", self.hypotheque,
-            "\nPrix d'une maison:", str(self.maison),
+            "\nPrix d'une maison:", str(self.prix_maison),
             "\nCouleur de la carte:", cases[self.couleur],
-            "\nPropriétaire:", self.proprietaire
+            "\nPropriétaire:", self.proprietaire,
+            "\nNombre de maison:", self.nb_maison,
+            "\nNombre d'hôtel:", self.nb_hotel
         )
 
