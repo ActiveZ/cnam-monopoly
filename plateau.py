@@ -57,6 +57,7 @@ class Game_board:
         
     def play(self):
         for j in self.joueurs:
+            if j.position == 40: j.position = 10
             if j.position != 40: # si joueur n'est pas en prison
                 j.go(self.dice.lancer(j))
                 self.case_arrivee(j)
@@ -82,7 +83,7 @@ class Game_board:
                 self.case_arrivee(j) # en cas de carte de déplacement
             if j.retire_chance:
                 j.retire_chance = False
-                self.carte_chance.tirer_carte(j) # si ne paye pas l'amende et préfere tirer chance
+                self.carte_chance.tirer_carte(j, self.proprietes) # si ne paye pas l'amende et préfere tirer chance
 
         elif j.position in proprietes: # terrain
             p = Propriete(j.position)

@@ -69,7 +69,7 @@ class Carte_chance:
         sum_maison = 0
         sum_hotel = 0
         for p in proprietes:
-            if j.index_joueur == p["proprietaire"]:
+            if j.index_joueur == proprietes[p]["proprietaire"]:
                 sum_maison += p["nb_maison"] * prix_maison
                 sum_hotel += p["nb_hotel"] * prix_hotel
         j.payer(sum_hotel + sum_maison)
