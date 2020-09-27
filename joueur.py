@@ -44,6 +44,7 @@ class Joueur:
     def payer(self, montant, beneficiaire = None): # beneficiaire = none => banque, sinon => joueur
         if self.cash >= montant:
             self.cash -= montant
+            if beneficiaire is not None: beneficiaire.cash += montant
         else:
             pass
 
