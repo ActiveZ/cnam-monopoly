@@ -23,7 +23,7 @@ class Carte_communaute:
         carte = self.jeu_carte.pop(len(self.jeu_carte)-1)
         print("Tirez une carte 'Caisse de Communauté'\n", carte[0])
         if str(carte[1]).isalpha():
-            if carte[1] == "anniversaire": # à vérifier
+            if carte[1] == "anniversaire":
                 for x in joueurs: 
                     if x != j: x.payer(10,j)
             elif carte[1] == "amendeChance": # le _ ne passe pas le test isalpha

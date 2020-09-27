@@ -21,7 +21,7 @@ class Propriete:
     
     def fiche(self):
         print (
-            "\nNom:", self.nom,
+            "Nom:", self.nom,
             "\nPrix:", self.prix,
             "\nLoyers:", self.loyer,
             "\nValeur hypothèque:", self.hypotheque,
@@ -29,6 +29,6 @@ class Propriete:
             "\nCouleur de la carte:", cases[self.couleur],
             "\nPropriétaire:", self.proprietaire,
             "\nNombre de maison:", self.nb_maison,
-            "\nNombre d'hôtel:", self.nb_hotel
+            "\nNombre d'hôtel:", self.nb_hotel,"\n"
         )
 
