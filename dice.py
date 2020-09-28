@@ -8,6 +8,9 @@ class Dice:
     def lancer(self, joueur):
         d1 = randint(1,6)
         d2 = randint(1,6)
+        
+        joueur.dernier_tirage = d1 + d2
+
         txt = joueur.nom + " lance les dés et fait " + str(d1) + " et " + str(d2)
 
         # ajoute 1 à nb_double si tire 1 double et raz sinon

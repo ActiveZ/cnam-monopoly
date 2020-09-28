@@ -14,6 +14,7 @@ class Gare:
         self.hypotheque = g["hypotheque"]
         self.couleur = g["couleur"]
         self.proprietaire = g["proprietaire"]
+        self.is_hypotheque = g["is_hypotheque"]
 
     
     def fiche(self):
@@ -23,6 +24,14 @@ class Gare:
             "\nLoyer", self.loyer,
             "\nValeur hypothèque:", self.hypotheque,
             "\nCouleur de la carte:", cases[self.couleur],
-            "\nPropriétaire:", self.proprietaire,"\n"
+            "\nPropriétaire:", self.proprietaire,
+            "\nHypothéquée:", self.is_hypotheque,"\n"
         )
+
+
+    def visite(self,j): # le joueur j arrive sur ce terrain
+        if self.is_hypotheque or self.proprietaire == j.index_joueur: return
+
+        if self.proprietaire == 0:
+            
 

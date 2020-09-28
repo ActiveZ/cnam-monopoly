@@ -15,11 +15,12 @@ class Prison:
 
             else:    
                 print(j.nom, ", vous êtes en prison. Tour:", j.tour_prison, "\n")
-                txt = "Choisissez: 1: payer 50 € ou 2: faire un double "
-                if j.libere > 0: txt += "3: utiliser votre carte 'libéré de prison'"
                 choix = ""
+                txt = "Choisissez: 1: payer 50 € ou 2: faire un double "
                 liste = ["1","2"]
-                if j.libere > 0: liste.append("3")
+                if j.libere > 0: 
+                    txt += "3: utiliser votre carte 'libéré de prison'"
+                    liste.append("3")
                 while choix not in liste: choix = input(txt + "\n")
 
                 if choix == "1": # libération par paiement
