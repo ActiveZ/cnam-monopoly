@@ -14,7 +14,7 @@ class Gare:
         self.hypotheque = g["hypotheque"]
         self.couleur = g["couleur"]
         self.proprietaire = g["proprietaire"]
-        self.is_hypotheque = g["is_hypotheque"]
+        self.isHypotheque = g["isHypotheque"]
 
     
     def fiche(self):
@@ -25,13 +25,26 @@ class Gare:
             "\nValeur hypothèque:", self.hypotheque,
             "\nCouleur de la carte:", cases[self.couleur],
             "\nPropriétaire:", self.proprietaire,
-            "\nHypothéquée:", self.is_hypotheque,"\n"
+            "\nHypothéquée:", self.isHypotheque,"\n"
         )
 
 
     def visite(self,j): # le joueur j arrive sur ce terrain
-        if self.is_hypotheque or self.proprietaire == j.index_joueur: return
+        if self.isHypotheque or self.proprietaire == j.index_joueur: return
 
-        if self.proprietaire == 0:
-            
+        if self.proprietaire == 0: # la gare n'appartient à personne
+            choix = ""
+            while choix not in ["1","2"]: choix = input("terrain libre --- 1: acheter 2: mettre aux enchères\n")
+            if choix == "1": 
+                j.payer(self.prix)
+                self.proprietaire = j.index_joueur
+            else: # enchères
+                return
+
+        else: # la gare appartient à un autre joueur
+            loyer = gares[5]["loyer"][gares["proprietaire"].count(self.proprietaire)]
+            print(j.nom,"vous devez",loyer,"€ à",self.proprietaire)
+            j.payer(loyer,self.proprietaire)
+
+
 
