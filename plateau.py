@@ -11,6 +11,8 @@ from compagnie import Compagnie
 from carte_chance import Carte_chance
 from carte_communaute import Carte_communaute
 
+from prison import Prison
+
 from joueur import Joueur
 
 
@@ -32,7 +34,10 @@ class Game_board:
         self.gares = gares
         self.compagnies = compagnies
 
-        # self.nb_joueur = 2
+        # instanciation de la prison
+        self.prison = Prison()
+
+        # tableau des joueurs
         self.joueurs = []
 
 
@@ -57,7 +62,10 @@ class Game_board:
         
     def play(self):
         for j in self.joueurs:
-            if j.position == 40: j.prison(self.carte_communaute, self.carte_communaute) # ttt du cas du joueur en prison
+            # if j.position == 40: j.prison(self.carte_chance, self.carte_communaute) # ttt du cas du joueur en prison
+            if j.position == 40:
+                self.prison.libere(j,self.carte_chance,self.carte_communaute)
+                if j.position != 40: self.case_arrivee(j) # le joueur a été libéré
             else: # si joueur n'est pas en prison
                 j.go(self.dice.lancer(j))
                 self.case_arrivee(j)

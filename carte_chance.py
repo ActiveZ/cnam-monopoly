@@ -21,7 +21,7 @@ class Carte_chance:
         if len(self.jeu_carte) == 0: self._init_carte()
 
         carte = self.jeu_carte.pop(len(self.jeu_carte)-1)
-        print("Tirez une carte 'Chance'\n", carte[0])
+        print("Tirez une carte 'Chance'\n",carte[0])
         if str(carte[1]).isalpha():
             if carte[1] == "reparationA": self._reparation(j, 40, 115, proprietes) # reparation1 ne passe pas isalpha
             elif carte[1] == "reparationB": self._reparation(j, 25, 100, proprietes)

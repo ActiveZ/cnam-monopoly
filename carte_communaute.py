@@ -21,7 +21,7 @@ class Carte_communaute:
         if len(self.jeu_carte) == 0: self._init_carte()
 
         carte = self.jeu_carte.pop(len(self.jeu_carte)-1)
-        print("Tirez une carte 'Caisse de Communauté'\n", carte[0])
+        print("Tirez une carte 'Caisse de Communauté'\n",carte[0])
         if str(carte[1]).isalpha():
             if carte[1] == "anniversaire":
                 for x in joueurs: 
