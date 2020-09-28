@@ -13,8 +13,8 @@ class Joueur:
         self.retire_chance = False # pour le cas de l'amende ou retire une carte chance
         self.libere = 0 # carte libéré de prison: 1:chance, 2:communauté, 3: les deux
         self.tour_prison = 0 # nb de tour en prison
-        # self.is_in_prison = False
-    
+        self.dernier_tirage = 0 # valeur du dernier tirage de dé, utilisé pour calcul compagnie
+        # self.is_human = True    
 
     def go(self, dice): # avance de la valeur de dice
         self.position += dice # avance de la valeur de dice
@@ -25,7 +25,8 @@ class Joueur:
         if self.cash >= montant:
             self.cash -= montant
             if beneficiaire is not None: beneficiaire.cash += montant
-        else:
+
+        else: # pas assez d'argent
             pass
 
 

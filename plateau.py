@@ -107,6 +107,7 @@ class Game_board:
         elif j.position in gares: # gare
             g = Gare(j.position)
             g.fiche()
+            g.visite(j)
 
         elif j.position in [0,10,20]: # case départ, simple visite, parc gratuit
             if j.position == 0: print("Case départ")
