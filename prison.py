@@ -1,13 +1,10 @@
 from random import randint
-# from dice import Dice
 
 
 class Prison:
 
 
         def libere(self,j,carte_chance,carte_communaute):       
-            # j.position = 10 # pour debug 
-            # return
             j.tour_prison += 1
 
             if j.tour_prison == 3: # sortie de prison au 3ème tour
