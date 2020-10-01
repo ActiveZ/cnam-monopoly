@@ -1,5 +1,5 @@
-
-from data import carte_chance
+from data import proprietes_data
+from data import carte_chance_data
 from random import shuffle
 
 class Carte_chance:
@@ -11,20 +11,20 @@ class Carte_chance:
 
 
     def _init_carte(self):
-        self.jeu_carte = carte_chance.copy() # vérifier si copy est utile
+        self.jeu_carte = carte_chance_data.copy()
         if not self.libere_prison_dispo: self.jeu_carte.pop(15)
         shuffle(self.jeu_carte)
         # print("\nNouveau jeu cartes chance\n")
 
 
-    def tirer_carte(self, j, proprietes):
+    def tirer_carte(self, j):
         if len(self.jeu_carte) == 0: self._init_carte()
 
         carte = self.jeu_carte.pop(len(self.jeu_carte)-1)
         print("Tirez une carte 'Chance'\n",carte[0])
         if str(carte[1]).isalpha():
-            if carte[1] == "reparationA": self._reparation(j, 40, 115, proprietes) # reparation1 ne passe pas isalpha
-            elif carte[1] == "reparationB": self._reparation(j, 25, 100, proprietes)
+            if carte[1] == "reparationA": self._reparation(j, 40, 115) # reparation1 ne passe pas isalpha
+            elif carte[1] == "reparationB": self._reparation(j, 25, 100)
             elif carte[1] == "depart":
                 j.position = 0
                 j.replay = True
@@ -65,10 +65,10 @@ class Carte_chance:
                 j.payer(-carte[1])
 
 
-    def _reparation(self, j, prix_maison, prix_hotel, proprietes):
+    def _reparation(self, j, prix_maison, prix_hotel):
         sum_maison = sum_hotel = 0
-        for p in proprietes:
-            if j.index_joueur == proprietes[p]["proprietaire"]:
+        for p in proprietes_data:
+            if j.index_joueur == proprietes_data[p]["proprietaire"]:
                 sum_maison += p["nb_maison"] * prix_maison
                 sum_hotel += p["nb_hotel"] * prix_hotel
         j.payer(sum_hotel + sum_maison)

@@ -1,4 +1,4 @@
-carte_chance = {
+carte_chance_data = {
     0:["Amende pour excès de vitesse", -15],
     1:["La banque vous verse un dividende de € 50",50],
     2:["Vous êtes imposé pour les réparations de voirie à raison de : € 40 par maison et € 115 par hotel","reparationA"],
@@ -19,7 +19,7 @@ carte_chance = {
 
 
 
-carte_caisse_communaute = {
+carte_caisse_communaute_data = {
 
     0:["C'est votre jour anniversaire chaque joueur doit vous donner € 10","anniversaire"],
     1:["Payer l'hôpital € 100",-100],
@@ -39,7 +39,7 @@ carte_caisse_communaute = {
     15:["Vous êtes libéré de prison .Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée ou vendue.","libere"]
 }
 
-cases = {
+cases_data = {
     0:"Case Départ",            # 0
     1:"Belleville",             # 1
     2:"Caisse de Communauté",   # 2
@@ -92,7 +92,7 @@ cases = {
     49:"Vert",                   # 31 + 32 + 34 (49)
     50:"Bleu foncé"              # 37 + 39 (50)
 }
-compagnies = {
+compagnies_data = {
     12 : {
         "nom": "Compagnie de distribution d'électricité",
         "prix": 150,
@@ -113,7 +113,7 @@ compagnies = {
 }
 
 
-gares = {
+gares_data = {
     5: {
         "nom": "Gare Montparnasse",
         "prix": 200,
@@ -156,7 +156,7 @@ gares = {
 }
 
 
-proprietes = {
+proprietes_data = {
     1: {
         "nom": "Boulevard de Belleville",
         "prix": 60,

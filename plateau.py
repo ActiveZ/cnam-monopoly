@@ -1,6 +1,6 @@
-from data import proprietes
-from data import gares
-from data import compagnies
+from data import proprietes_data
+from data import gares_data
+from data import compagnies_data
 
 from dice import Dice
 
@@ -29,10 +29,22 @@ class Game_board:
         self.carte_chance = Carte_chance()
         self.carte_communaute = Carte_communaute()
 
-        # instanciation des cases terrain
-        self.proprietes = proprietes
-        self.gares = gares
-        self.compagnies = compagnies
+        # self.proprietes = proprietes_data
+
+        # instanciation des cases propriété
+        self.proprietes = []
+        for i in proprietes_data: self.proprietes.append(Propriete(i))
+        # for p in self.proprietes: p.fiche()
+
+        # instanciation des cases gare
+        self.gares = []
+        for i in gares_data: self.gares.append(Gare(i))
+        # for g in self.gares: g.fiche()
+
+        # instanciation des cases compagnie
+        self.compagnies = []
+        for i in compagnies_data: self.compagnies.append(Compagnie(i))
+        # for c in self.compagnies: c.fiche()
 
         # instanciation de la prison
         self.prison = Prison()
@@ -82,7 +94,7 @@ class Game_board:
             print("Vous avez reçu 200 € !")
 
         elif j.position in [7,22,36]:
-            self.carte_chance.tirer_carte(j, self.proprietes) # carte chance
+            self.carte_chance.tirer_carte(j) # carte chance voir si supprimer proprietes en mettant import dans chance
             if j.replay:
                 j.replay = False
                 self.case_arrivee(j) # en cas de carte de déplacement
@@ -94,20 +106,20 @@ class Game_board:
                 self.case_arrivee(j) # en cas de carte de déplacement
             if j.retire_chance:
                 j.retire_chance = False
-                self.carte_chance.tirer_carte(j, self.proprietes) # si ne paye pas l'amende et préfere tirer chance
+                self.carte_chance.tirer_carte(j) # si ne paye pas l'amende et préfere tirer chance
 
-        elif j.position in proprietes: # terrain
+        elif j.position in proprietes_data: # terrain
             p = Propriete(j.position)
             p.fiche()
         
-        elif j.position in compagnies: # électricité/eau
+        elif j.position in compagnies_data: # électricité/eau
             c = Compagnie(j.position)
             c.fiche()
 
-        elif j.position in gares: # gare
+        elif j.position in gares_data: # gare
             g = Gare(j.position)
             g.fiche()
-            g.visite(j)
+            g.visite(j, self.joueurs)
 
         elif j.position in [0,10,20]: # case départ, simple visite, parc gratuit
             if j.position == 0: print("Case départ")
@@ -117,6 +129,7 @@ class Game_board:
         elif j.position == 30: # allez en prison
             print("Allez directement en prison")
             j.position = 40
+            j.nb_double = 0 # cas du joueur qui arrive ici par un double => ne rejoue pas
 
         elif j.position  == 4: # impôts
             print("Taxe sur le revenu: 200 €")

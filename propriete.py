@@ -1,5 +1,5 @@
-from data import proprietes
-from data import cases
+from data import proprietes_data
+from data import cases_data
 
 
 class Propriete:
@@ -7,7 +7,7 @@ class Propriete:
 
     def __init__(self, index):
         # index est le numéro de case sur le plateau
-        p = proprietes[index]
+        p = proprietes_data[index]
         self.nom = p["nom"]
         self.prix = p["prix"]
         self.loyer = p["loyer"]
@@ -26,7 +26,7 @@ class Propriete:
             "\nLoyers:", self.loyer,
             "\nValeur hypothèque:", self.hypotheque,
             "\nPrix d'une maison:", str(self.prix_maison),
-            "\nCouleur de la carte:", cases[self.couleur],
+            "\nCouleur de la carte:", cases_data[self.couleur],
             "\nPropriétaire:", self.proprietaire,
             "\nNombre de maison:", self.nb_maison,
             "\nNombre d'hôtel:", self.nb_hotel,"\n"
