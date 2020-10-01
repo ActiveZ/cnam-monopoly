@@ -1,5 +1,5 @@
 
-from data import carte_caisse_communaute
+from data import carte_caisse_communaute_data
 from random import shuffle
 
 class Carte_communaute:
@@ -11,7 +11,7 @@ class Carte_communaute:
 
 
     def _init_carte(self):
-        self.jeu_carte = carte_caisse_communaute.copy()
+        self.jeu_carte = carte_caisse_communaute_data.copy()
         if not self.libere_prison_dispo: self.jeu_carte.pop(15)
         shuffle(self.jeu_carte)
         # print("\nNouveau jeu cartes caisse de communauté\n")

@@ -14,6 +14,7 @@ class Joueur:
         self.libere = 0 # carte libéré de prison: 1:chance, 2:communauté, 3: les deux
         self.tour_prison = 0 # nb de tour en prison
         self.dernier_tirage = 0 # valeur du dernier tirage de dé, utilisé pour calcul compagnie
+        self.terrains = [] # tableau des cases que possède le joueur (ex: 5 -> gare montparnasse)
         # self.is_human = True    
 
     def go(self, dice): # avance de la valeur de dice
@@ -22,12 +23,14 @@ class Joueur:
 
 
     def payer(self, montant, beneficiaire = None): # beneficiaire = none => banque, sinon => joueur
+        # retourne true si paiement effectué, false sinon
         if self.cash >= montant:
             self.cash -= montant
             if beneficiaire is not None: beneficiaire.cash += montant
+            return True
 
         else: # pas assez d'argent
-            pass
+            return False
 
 
     def fiche(self):

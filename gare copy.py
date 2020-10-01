@@ -1,6 +1,7 @@
 from data import gares_data
 from data import cases_data
 
+
 class Gare:
 
 
@@ -28,7 +29,7 @@ class Gare:
         )
 
 
-    def visite(self,j, joueurs): # le joueur j arrive sur ce terrain
+    def visite(self,j): # le joueur j arrive sur ce terrain
         if self.isHypotheque or self.proprietaire == j.index_joueur: return
 
         if self.proprietaire == 0: # la gare n'appartient à personne
@@ -36,25 +37,14 @@ class Gare:
             while choix not in ["1","2"]: choix = input("terrain libre --- 1: acheter 2: mettre aux enchères\n")
             if choix == "1": 
                 if j.payer(self.prix):
-                    j.terrains.append(j.position)
-                    gares_data[j.position]["proprietaire"] = j.index_joueur
+                    self.proprietaire = j.index_joueur
             else: # enchères
                 return
 
         else: # la gare appartient à un autre joueur
-            count = 0
-
-            # calcul du montant du loyer
-            for i in gares_data: 
-                if gares_data[i]["proprietaire"] == self.proprietaire: count += 1
-            loyer = gares_data[j.position]["loyer"][count - 1]
-
-            # recherche du propriétaire du terrain
-            for x in joueurs:
-                if j.position in x.terrains: beneficiaire = x
-
-            print(j.nom,"vous devez",loyer,"€ à",beneficiaire.nom)
-            j.payer(loyer,beneficiaire)
+            loyer = gares_data[5]["loyer"][gares_data["proprietaire"].count(self.proprietaire)]
+            print(j.nom,"vous devez",loyer,"€ à",self.proprietaire)
+            j.payer(loyer,self.proprietaire)
 
 
 
