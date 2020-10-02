@@ -115,6 +115,7 @@ class Game_board:
         elif j.position in compagnies_data: # électricité/eau
             c = Compagnie(j.position)
             c.fiche()
+            c.visite(j, self.joueurs)
 
         elif j.position in gares_data: # gare
             g = Gare(j.position)

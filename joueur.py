@@ -34,10 +34,9 @@ class Joueur:
 
 
     def fiche(self):
-        print("-------------------\n" +
-            "index:", self.index_joueur, "\n" + 
-            "Joueur:", self.nom, "\n" + 
-            "Argent:", self.cash, "\n" +
-            "Position:", self.position)
-        if self.nb_double > 0: print("Double:", self.nb_double)
-        print("-------------------\n")
+        txt = "-------------------------------------------\n"
+        # txt += "index: " + str(self.index_joueur) + "  "
+        txt += "Joueur: " + str(self.nom) + "  Argent: " + str(self.cash) + "  Position: " + str(self.position)
+        if self.nb_double > 0: txt += "  Double:" + str(self.nb_double)
+        txt += "\n-------------------------------------------\n"
+        print(txt)
