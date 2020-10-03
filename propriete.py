@@ -55,20 +55,21 @@ class Propriete:
             # calcul du montant du loyer
 
             # terrain nu
-            if self.nb_maison == 0 and self.nb_hotel == 0: loyer = self.loyer[0]
-            # double si joueur possède toute la couleur
-            count_color = 0 # compte les cartes de la même couleur
-            count_owner = 0 # compte le nb carte de cette couleur qui appartiennent au joueur de la case visitée
-            for i in proprietes_data:
-                if proprietes_data[i]["couleur"] == self.couleur: count_color += 1
-                if proprietes_data[i]["couleur"] == self.couleur and proprietes_data[i]["proprietaire"] == self.proprietaire: count_owner += 1
-            if count_owner == count_color: loyer *= 2
+            if self.nb_maison == 0 and self.nb_hotel == 0: 
+                loyer = self.loyer[0]
+                # double si joueur possède toute la couleur
+                count_color = 0 # compte les cartes de la même couleur
+                count_owner = 0 # compte le nb carte de cette couleur qui appartiennent au joueur de la case visitée
+                for i in proprietes_data:
+                    if proprietes_data[i]["couleur"] == self.couleur: count_color += 1
+                    if proprietes_data[i]["couleur"] == self.couleur and proprietes_data[i]["proprietaire"] == self.proprietaire: count_owner += 1
+                if count_owner == count_color: loyer *= 2
 
             # avec maisons
-            if self.nb_maison > 0: loyer = self.loyer[self.nb_maison]
+            elif self.nb_maison > 0: loyer = self.loyer[self.nb_maison]
 
             # avec un hôtel
-            if self.nb_hotel > 0: loyer = self.loyer[5]
+            elif self.nb_hotel > 0: loyer = self.loyer[5]
 
             print(j.nom,"vous devez",loyer,"€ à",beneficiaire.nom)
             j.payer(loyer,beneficiaire)
