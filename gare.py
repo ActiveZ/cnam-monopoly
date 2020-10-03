@@ -33,7 +33,7 @@ class Gare:
 
         if self.proprietaire == 0: # la gare n'appartient à personne
             choix = ""
-            while choix not in ["1","2"]: choix = input("terrain libre --- 1: acheter 2: mettre aux enchères\n")
+            while choix not in ["1","2"]: choix = input("terrain libre --- 1: acheter 2: mettre aux enchères ")
             if choix == "1": 
                 if j.payer(self.prix):
                     j.terrains.append(j.position)

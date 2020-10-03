@@ -38,5 +38,5 @@ class Joueur:
         # txt += "index: " + str(self.index_joueur) + "  "
         txt += "Joueur: " + str(self.nom) + "  Argent: " + str(self.cash) + "  Position: " + str(self.position)
         if self.nb_double > 0: txt += "  Double:" + str(self.nb_double)
-        txt += "\n-------------------------------------------\n"
+        txt += "\n-------------------------------------------"
         print(txt)
