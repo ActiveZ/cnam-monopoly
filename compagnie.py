@@ -36,6 +36,9 @@ class Compagnie:
                 if j.payer(self.prix):
                     j.terrains.append(j.position)
                     compagnies_data[j.position]["proprietaire"] = j.index_joueur
+                else:
+                    print("Vous n'avez pas assez d'argent ! Vous disposez de", j.cash, "€")
+                    self.visite(j, joueurs)
             else: # enchères
                 return
 
