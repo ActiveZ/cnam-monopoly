@@ -24,5 +24,5 @@ game_board = Game_board()
 
 game_board.init_game()
 
-while input("***************************************\nSouhaitez-vous quitter la partie (o/N) ? ") != "o":
+while input("***************************************\n\nSouhaitez-vous quitter la partie (o/N) ? \n") != "o":
     game_board.play()

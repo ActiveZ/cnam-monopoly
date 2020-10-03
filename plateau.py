@@ -67,13 +67,13 @@ class Game_board:
             j = Joueur()
             self.joueurs.append(j)
             print("Il y a", len(self.joueurs), "joueurs à la table\n")
-        print("Début de la partie\n")
-        for j in self.joueurs:
-            j.fiche()
+        print("\nDébut de la partie\n")
+        # for j in self.joueurs: j.fiche()
         
         
     def play(self):
         for j in self.joueurs:
+            j.fiche()
             if j.position == 40: #joueur en prison
                 self.prison.libere(j,self.carte_chance,self.carte_communaute)
                 if j.position != 40: self.case_arrivee(j) # le joueur a été libéré
@@ -84,7 +84,6 @@ class Game_board:
                     print(j.nom, "rejoue")
                     j.go(self.dice.lancer(j))
                     self.case_arrivee(j)
-            j.fiche()
 
 
     # analyse de la case d'arrivée
@@ -111,10 +110,12 @@ class Game_board:
         elif j.position in proprietes_data: # terrain
             p = Propriete(j.position)
             p.fiche()
+            p.visite(j, self.joueurs)
         
         elif j.position in compagnies_data: # électricité/eau
             c = Compagnie(j.position)
             c.fiche()
+            c.visite(j, self.joueurs)
 
         elif j.position in gares_data: # gare
             g = Gare(j.position)
