@@ -111,6 +111,7 @@ class Game_board:
         elif j.position in proprietes_data: # terrain
             p = Propriete(j.position)
             p.fiche()
+            p.visite(j, self.joueurs)
         
         elif j.position in compagnies_data: # électricité/eau
             c = Compagnie(j.position)
