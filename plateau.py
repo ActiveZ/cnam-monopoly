@@ -63,7 +63,7 @@ class Game_board:
         j = Joueur()
         self.joueurs.append(j)
         print("Il y a", len(self.joueurs), "joueurs à la table\n")
-        while len(self.joueurs) < 4 and input("Souhaitez-vous ajouter un nouveau joueur (max = 4) (o/N) ? ").lower() == "o":
+        while len(self.joueurs) < 5 and input("Souhaitez-vous ajouter un nouveau joueur (max = 5) (o/N) ? ").lower() == "o":
             j = Joueur()
             self.joueurs.append(j)
             print("Il y a", len(self.joueurs), "joueurs à la table\n")
