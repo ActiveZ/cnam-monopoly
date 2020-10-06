@@ -72,29 +72,61 @@ while running:
 
 
 running = True
+running = False
 while running:
     dt = clock.tick(FPS) / 1000  # Returns milliseconds between each call to 'tick'. The convert time to seconds.
 
 
     for c in cases_data:
-        if c == 40: break # on saute la case prison
+        if c == 40: break # on saute la case prison: à regler en envoyant directement
         for event in pygame.event.get(): running = event.type != pygame.QUIT
 
         while player.rect.centerx != cases_data[c]["x"] or player.rect.centery != cases_data[c]["y"]:
             if player.rect.centerx < cases_data[c]["x"]: player.velocity[0] = +1
             elif player.rect.centerx > cases_data[c]["x"]: player.velocity[0] = -1
             else: player.velocity[0] = 0
+
             if player.rect.centery < cases_data[c]["y"]: player.velocity[1] = +1
             elif player.rect.centery > cases_data[c]["y"]: player.velocity[1] = -1
             else: player.velocity[1] = 0
 
             player.update()
 
-            print("c:", c, "x:", player.rect.centerx, "y:", player.rect.centery) # affiche les coordonnées du centre du pion
+            print("c:", c, "x:", player.rect.centerx, "y:", player.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
 
             screen.blit(img_plateau,(0,0))
             screen.blit(player.image, player.rect)
             pygame.display.update()  # Or pygame.display.flip()
+
+
+# running = True
+dt = clock.tick(FPS) / 1000  # Returns milliseconds between each call to 'tick'. The convert time to seconds.
+c1 = 7
+c2 = 24
+player.rect.centerx = cases_data[7]["x"]
+player.rect.centery = cases_data[7]["y"]
+print("x:", player.rect.centerx, "y:", player.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
+
+# while running:
+for c in [cases_data[7], cases_data[24]]:
+    while player.rect.centerx != c["x"] or player.rect.centery != c["y"]:
+        if player.rect.centerx < c["x"]: player.velocity[0] = +1
+        elif player.rect.centerx > c["x"]: player.velocity[0] = -1
+        else: player.velocity[0] = 0
+
+        if player.rect.centery < c["y"]: player.velocity[1] = +1
+        elif player.rect.centery > c["y"]: player.velocity[1] = -1
+        else: player.velocity[1] = 0
+
+        player.update()
+
+        print("x:", player.rect.centerx, "y:", player.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
+
+        screen.blit(img_plateau,(0,0))
+        screen.blit(player.image, player.rect)
+        pygame.display.update()  # Or pygame.display.flip()
+
+
 
 print("Exited the game loop. Game will quit...")
 quit()
