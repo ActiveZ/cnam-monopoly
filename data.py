@@ -39,59 +39,61 @@ carte_caisse_communaute_data = {
     15:["Vous êtes libéré de prison .Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée ou vendue.","libere"]
 }
 
+# coordonnées pour les pions
 cases_data = {
-    0:"Case Départ",            # 0
-    1:"Belleville",             # 1
-    2:"Caisse de Communauté",   # 2
-    3:"Lecourbe",               # 3
-    4:"Impôts",                 # 4
-    5:"Gare Montparnasse",      # 5
-    6:"Vaugirard",              # 6
-    7:"Carte Chance",           # 7
-    8:"Courcelles",             # 8
-    9:"Républiques",            # 9
-    10:"Simple Visite",          # 10
-    11:"La Villette",            # 11
-    12:"Cie électricité",        # 12
-    13:"Neuilly",                # 13
-    14:"Paradis",                # 14
-    15:"Gare de Lyon",           # 15
-    16:"Mozart",                 # 16
-    17:"Caisse de Communauté",   # 17 
-    18:"Saint-Michel",           # 18
-    19:"Pigalle",                # 19
-    20:"Parc Gratuit",           # 20
-    21:"Matignon",               # 21
-    22:"Carte Chance",           # 22
-    23:"Malesherbes",            # 23
-    24:"Henri-Martin",           # 24
-    25:"Gare du Nord",           # 25
-    26:"Saint-Honoré",           # 26
-    27:"La Bourse",              # 27
-    28:"Cie des Eaux",           # 28
-    29:"La Fayette",             # 29
-    30:"Allez en Prison",        # 30
-    31:"Breteuil",               # 31
-    32:"Foch",                   # 32
-    33:"Caisse de Communauté",   # 33
-    34:"Capucines",              # 34
-    35:"Gare Saint-Lazare",      # 35
-    36:"Carte Chance",           # 36
-    37:"Champs-élysées",         # 37
-    38:"Taxe de Luxe",           # 38
-    39:"La Paix",                # 39
-    40:"Prison",                 # 40
-    41:"Les gares",              # 5 + 15 + 25 + 35 (41)
-    42:"Les Cies",               # 12 + 28 (42)
-    43:"Brun",                   # 1 + 3 (43)
-    44:"Bleu clair",             # 6 + 8 + 9 (44)
-    45:"Violet",                 # 11 + 13 + 14 (45)
-    46:"Orange",                 # 16 + 18 + 19 (46)
-    47:"Rouge",                  # 21 + 23 + 24 (47)
-    48:"Jaune",                  # 26 + 27 + 29 (48)
-    49:"Vert",                   # 31 + 32 + 34 (49)
-    50:"Bleu foncé"              # 37 + 39 (50)
+    0:{"nom":"Case Départ", "x":650, "y":650},
+    1:{"nom":"Belleville", "x":576, "y":650},
+    2:{"nom":"Caisse de Communauté", "x":518, "y":650},
+    3:{"nom":"Lecourbe", "x":460, "y":650},
+    4:{"nom":"Impôts", "x":406, "y":650},
+    5:{"nom":"Gare Montparnasse", "x":350, "y":650},
+    6:{"nom":"Vaugirard", "x":292, "y":650},
+    7:{"nom":"Carte Chance", "x":236, "y":650},
+    8:{"nom":"Courcelles", "x":180, "y":650},
+    9:{"nom":"République", "x":126, "y":650},
+    10:{"nom":"Simple Visite", "x":36, "y":662},
+    11:{"nom":"La Villette", "x":36, "y":574},
+    12:{"nom":"Cie électricité", "x":36, "y":514},
+    13:{"nom":"Neuilly", "x":36, "y":458},
+    14:{"nom":"Paradis", "x":36, "y":406},
+    15:{"nom":"Gare de Lyon", "x":36, "y":346},
+    16:{"nom":"Mozart", "x":36, "y":290},
+    17:{"nom":"Caisse de Communauté", "x":36, "y":236},
+    18:{"nom":"Saint-Michel", "x":36, "y":182},
+    19:{"nom":"Pigalle", "x":36, "y":122},
+    20:{"nom":"Parc Gratuit", "x":50, "y":34},
+    21:{"nom":"Matignon", "x":122, "y":34},
+    22:{"nom":"Carte Chance", "x":178, "y":34},
+    23:{"nom":"Malesherbes", "x":236, "y":34},
+    24:{"nom":"Henri-Martin", "x":292, "y":34},
+    25:{"nom":"Gare du Nord", "x":350, "y":34},
+    26:{"nom":"Saint-Honoré", "x":404, "y":34},
+    27:{"nom":"La Bourse", "x":460, "y":34},
+    28:{"nom":"Cie des Eaux", "x":518, "y":34},
+    29:{"nom":"La Fayette", "x":574, "y":34},
+    30:{"nom":"Allez en Prison", "x":654, "y":34},
+    31:{"nom":"Breteuil", "x":654, "y":122},
+    32:{"nom":"Foch", "x":654, "y":180},
+    33:{"nom":"Caisse de Communauté", "x":654, "y":234},
+    34:{"nom":"Capucines", "x":654, "y":290},
+    35:{"nom":"Gare Saint-Lazare", "x":654, "y":344},
+    36:{"nom":"Carte Chance", "x":654, "y":484},
+    37:{"nom":"Champs-élysées", "x":654, "y":460},
+    38:{"nom":"Taxe de Luxe", "x":654, "y":518},
+    39:{"nom":"La Paix", "x":654, "y":572},
+    40:{"nom":"Prison", "x":64, "y":632},
+    41:{"nom":"Les gares", "x":0, "y":0},              # 5 + 15 + 25 + 35 (41)
+    42:{"nom":"Les Cies", "x":0, "y":0},               # 12 + 28 (42)
+    43:{"nom":"Brun", "x":0, "y":0},                   # 1 + 3 (43)
+    44:{"nom":"Bleu clair", "x":0, "y":0},             # 6 + 8 + 9 (44)
+    45:{"nom":"Violet", "x":0, "y":0},                 # 11 + 13 + 14 (45)
+    46:{"nom":"Orange", "x":0, "y":0},                 # 16 + 18 + 19 (46)
+    47:{"nom":"Rouge", "x":0, "y":0},                  # 21 + 23 + 24 (47)
+    48:{"nom":"Jaune", "x":0, "y":0},                  # 26 + 27 + 29 (48)
+    49:{"nom":"Vert", "x":0, "y":0},                   # 31 + 32 + 34 (49)
+    50:{"nom":"Bleu foncé", "x":0, "y":0}              # 37 + 39 (50)
 }
+
 compagnies_data = {
     12 : {
         "nom": "Compagnie de distribution d'électricité",
@@ -418,7 +420,7 @@ proprietes_data = {
     },      
 
     37: {
-        "nom": "Avenue des Champs-Elisées",
+        "nom": "Avenue des Champs-Elysées",
         "prix": 350,
         "loyer": [35,175,500,1100,1300,1500],
         "hypotheque":175,

@@ -1,3 +1,7 @@
+import pygame
+from data import cases_data
+
+
 class Joueur:
     nb_joueur = 0 # variable de classe incrémentée à chaque instanciation de joueur
 
@@ -15,11 +19,17 @@ class Joueur:
         self.tour_prison = 0 # nb de tour en prison
         self.dernier_tirage = 0 # valeur du dernier tirage de dé, utilisé pour calcul compagnie
         self.terrains = [] # tableau des cases que possède le joueur (ex: 5 -> gare montparnasse)
-        # self.is_human = True    
+        # self.is_human = True
+        # initialisation graphique du joueur
+        self.image = pygame.image.load("images/pion_chapeau.png")
+        self.rect = self.image.get_rect()  # Get rect of some size as 'image'.
+        self.rect.center = (cases_data[0]["x"], cases_data[0]["y"]) # case départ
+        self.velocity = [0, 0] # [x, y]    
 
-    def go(self, dice): # avance de la valeur de dice
-        self.position += dice # avance de la valeur de dice
-        if self.position > 39: self.position -= 40 # case départ = 0
+
+    # def go(self, dice):
+    #     self.position += dice # avance de la valeur de dice
+    #     if self.position > 39: self.position -= 40 # case départ = 0
 
 
     def payer(self, montant, beneficiaire = None): # beneficiaire = none => banque, sinon => joueur
@@ -40,3 +50,8 @@ class Joueur:
         if self.nb_double > 0: txt += "  Double:" + str(self.nb_double)
         txt += "\n-------------------------------------------"
         print(txt)
+
+
+    # met à jour le pion du joueur sur le plateau
+    def _update(self):
+        self.rect.move_ip(*self.velocity)

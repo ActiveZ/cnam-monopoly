@@ -55,14 +55,12 @@ class Game_board:
         # tableau des joueurs
         self.joueurs = []
 
-        # initialisation graphique du tableau
-        self._init_graphic_board()
-
 
     def init_game(self):
         print("************************************\n" + 
              "* BIENVENUE A LA TABLE DE MONOPOLY *\n" +
              "************************************\n")
+
         j = Joueur()
         self.joueurs.append(j)
         j = Joueur()
@@ -74,9 +72,6 @@ class Game_board:
             print("Il y a", len(self.joueurs), "joueurs à la table\n")
         print("\nDébut de la partie\n")
         # for j in self.joueurs: j.fiche()
-        self.screen.blit(self.img_plateau,(0,0))
-        self.screen.blit(j.image, j.rect)
-        pygame.display.update()  # Or pygame.display.flip()
         
         
     def play(self):
@@ -86,11 +81,11 @@ class Game_board:
                 self.prison.libere(j,self.carte_chance,self.carte_communaute)
                 if j.position != 40: self.case_arrivee(j) # le joueur a été libéré
             else: # si joueur n'est pas en prison
-                self.go(j, self.dice.lancer(j))
+                j.go(self.dice.lancer(j))
                 self.case_arrivee(j)
                 while j.nb_double > 0:  # tant le joueur a fait un double, il rejoue
                     print(j.nom, "rejoue")
-                    self.go(j, self.dice.lancer(j))
+                    j.go(self.dice.lancer(j))
                     self.case_arrivee(j)
 
 
@@ -151,53 +146,6 @@ class Game_board:
         else: # pour debug
             print("Erreur de case")
             exit()
-
-
-    # initialisation graphique du plateau
-    def _init_graphic_board(self):
-        successes, failures = pygame.init()
-        print("Initializing pygame: {0} successes and {1} failures.".format(successes, failures))
-
-        self.screen = pygame.display.set_mode((700, 700))
-        clock = pygame.time.Clock()
-        FPS = 60
-
-        BLACK = (0, 0, 0)
-        WHITE = (255, 255, 255)
-
-        self.img_plateau = pygame.image.load("images/board.png").convert()
-
-        self.screen.blit(self.img_plateau,(0,0))
-        pygame.display.update()
-
-
-    # déplacement du joueur j et maj graphique du plateau
-    def go(self, j, dice):
-        progress = dice # le joueur progresse de la valeur du lancé de dés
-
-        for i in range (progress + 1):
-            pos = j.position + i
-            c = cases_data[pos] if pos < 40 else cases_data [pos - 40]
-            while j.rect.centerx != c["x"] or j.rect.centery != c["y"]:
-                if j.rect.centerx < c["x"]: j.velocity[0] = +1
-                elif j.rect.centerx > c["x"]: j.velocity[0] = -1
-                else: j.velocity[0] = 0
-
-                if j.rect.centery < c["y"]: j.velocity[1] = +1
-                elif j.rect.centery > c["y"]: j.velocity[1] = -1
-                else: j.velocity[1] = 0
-
-                j.rect.move_ip(*j.velocity)
-
-                # print("c:", c, "x:", j.rect.centerx, "y:", j.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
-
-                self.screen.blit(self.img_plateau,(0,0))
-                self.screen.blit(j.image, j.rect)
-                pygame.display.update()  # Or pygame.display.flip()
-
-        j.position += progress # avance de la valeur de dice
-        if j.position > 39: j.position -= 40 # case départ = 0
-
 
 
 
