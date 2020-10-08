@@ -86,11 +86,11 @@ class Game_board:
                 self.prison.libere(j,self.carte_chance,self.carte_communaute)
                 if j.position != 40: self.case_arrivee(j) # le joueur a été libéré
             else: # si joueur n'est pas en prison
-                j.go(self.dice.lancer(j))
+                self.go(j, self.dice.lancer(j))
                 self.case_arrivee(j)
                 while j.nb_double > 0:  # tant le joueur a fait un double, il rejoue
                     print(j.nom, "rejoue")
-                    j.go(self.dice.lancer(j))
+                    self.go(j, self.dice.lancer(j))
                     self.case_arrivee(j)
 
 
@@ -169,6 +169,35 @@ class Game_board:
 
         self.screen.blit(self.img_plateau,(0,0))
         pygame.display.update()
+
+
+    # déplacement du joueur j et maj graphique du plateau
+    def go(self, j, dice):
+        c1 = j.position # c1: case de départ
+        j.position += dice # avance de la valeur de dice
+        if j.position > 39: j.position -= 40 # case départ = 0
+        c2 = j.position# c2: case d'arrivée
+
+        for i in range (c1,c2+1): # pb si passe par case départ
+            # j = i if c2 > c1 else 
+            c = cases_data[i]
+            while j.rect.centerx != c["x"] or j.rect.centery != c["y"]:
+                if j.rect.centerx < c["x"]: j.velocity[0] = +1
+                elif j.rect.centerx > c["x"]: j.velocity[0] = -1
+                else: j.velocity[0] = 0
+
+                if j.rect.centery < c["y"]: j.velocity[1] = +1
+                elif j.rect.centery > c["y"]: j.velocity[1] = -1
+                else: j.velocity[1] = 0
+
+                j.rect.move_ip(*j.velocity)
+
+                # print("c:", c, "x:", j.rect.centerx, "y:", j.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
+
+                self.screen.blit(self.img_plateau,(0,0))
+                self.screen.blit(j.image, j.rect)
+                pygame.display.update()  # Or pygame.display.flip()
+
 
 
 

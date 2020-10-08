@@ -27,9 +27,9 @@ class Joueur:
         self.velocity = [0, 0] # [x, y]    
 
 
-    def go(self, dice): # avance de la valeur de dice
-        self.position += dice # avance de la valeur de dice
-        if self.position > 39: self.position -= 40 # case départ = 0
+    # def go(self, dice):
+    #     self.position += dice # avance de la valeur de dice
+    #     if self.position > 39: self.position -= 40 # case départ = 0
 
 
     def payer(self, montant, beneficiaire = None): # beneficiaire = none => banque, sinon => joueur

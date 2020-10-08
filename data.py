@@ -50,7 +50,7 @@ cases_data = {
     6:{"nom":"Vaugirard", "x":292, "y":650},
     7:{"nom":"Carte Chance", "x":236, "y":650},
     8:{"nom":"Courcelles", "x":180, "y":650},
-    9:{"nom":"Républiques", "x":126, "y":650},
+    9:{"nom":"République", "x":126, "y":650},
     10:{"nom":"Simple Visite", "x":36, "y":662},
     11:{"nom":"La Villette", "x":36, "y":574},
     12:{"nom":"Cie électricité", "x":36, "y":514},
@@ -420,7 +420,7 @@ proprietes_data = {
     },      
 
     37: {
-        "nom": "Avenue des Champs-Elisées",
+        "nom": "Avenue des Champs-Elysées",
         "prix": 350,
         "loyer": [35,175,500,1100,1300,1500],
         "hypotheque":175,

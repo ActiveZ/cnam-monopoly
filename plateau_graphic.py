@@ -115,8 +115,9 @@ player.rect.centery = cases_data[7]["y"]
 # print("x:", player.rect.centerx, "y:", player.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
 
 
-for i in range (c1,c2+1):
-    c = cases_data[i]
+for i in range (c1,c2+1): # pb si passe par case départ
+    # j = i if c2 > c1 else 
+    c = cases_data[j]
     while player.rect.centerx != c["x"] or player.rect.centery != c["y"]:
         if player.rect.centerx < c["x"]: player.velocity[0] = +1
         elif player.rect.centerx > c["x"]: player.velocity[0] = -1
