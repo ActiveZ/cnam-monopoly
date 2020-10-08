@@ -173,14 +173,11 @@ class Game_board:
 
     # déplacement du joueur j et maj graphique du plateau
     def go(self, j, dice):
-        c1 = j.position # c1: case de départ
-        j.position += dice # avance de la valeur de dice
-        if j.position > 39: j.position -= 40 # case départ = 0
-        c2 = j.position# c2: case d'arrivée
+        progress = dice # le joueur progresse de la valeur du lancé de dés
 
-        for i in range (c1,c2+1): # pb si passe par case départ
-            # j = i if c2 > c1 else 
-            c = cases_data[i]
+        for i in range (progress + 1):
+            pos = j.position + i
+            c = cases_data[pos] if pos < 40 else cases_data [pos - 40]
             while j.rect.centerx != c["x"] or j.rect.centery != c["y"]:
                 if j.rect.centerx < c["x"]: j.velocity[0] = +1
                 elif j.rect.centerx > c["x"]: j.velocity[0] = -1
@@ -198,6 +195,8 @@ class Game_board:
                 self.screen.blit(j.image, j.rect)
                 pygame.display.update()  # Or pygame.display.flip()
 
+        j.position += progress # avance de la valeur de dice
+        if j.position > 39: j.position -= 40 # case départ = 0
 
 
 
