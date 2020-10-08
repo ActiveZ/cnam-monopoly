@@ -1,5 +1,11 @@
+import os
 import pygame
 from data import cases_data
+
+
+
+os.system('cls') # windows
+os.system('clear') # linux
 
 
 successes, failures = pygame.init()
@@ -100,15 +106,18 @@ while running:
 
 
 # running = True
+# while running:
 dt = clock.tick(FPS) / 1000  # Returns milliseconds between each call to 'tick'. The convert time to seconds.
 c1 = 7
+print("Départ:", cases_data[c1])
 c2 = 24
 player.rect.centerx = cases_data[7]["x"]
 player.rect.centery = cases_data[7]["y"]
-print("x:", player.rect.centerx, "y:", player.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
+# print("x:", player.rect.centerx, "y:", player.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
 
-# while running:
-for c in [cases_data[7], cases_data[24]]:
+
+for i in range (c1,c2+1):
+    c = cases_data[i]
     while player.rect.centerx != c["x"] or player.rect.centery != c["y"]:
         if player.rect.centerx < c["x"]: player.velocity[0] = +1
         elif player.rect.centerx > c["x"]: player.velocity[0] = -1
@@ -120,13 +129,16 @@ for c in [cases_data[7], cases_data[24]]:
 
         player.update()
 
-        print("x:", player.rect.centerx, "y:", player.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
+        # print("c:", c, "x:", player.rect.centerx, "y:", player.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
 
         screen.blit(img_plateau,(0,0))
         screen.blit(player.image, player.rect)
         pygame.display.update()  # Or pygame.display.flip()
 
 
+print("Arrivée:", c)
+running = True
+while running: pass
 
 print("Exited the game loop. Game will quit...")
 quit()
