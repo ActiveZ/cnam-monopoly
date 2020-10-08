@@ -55,14 +55,12 @@ class Game_board:
         # tableau des joueurs
         self.joueurs = []
 
-        # initialisation graphique du tableau
-        self._init_graphic_board()
-
 
     def init_game(self):
         print("************************************\n" + 
              "* BIENVENUE A LA TABLE DE MONOPOLY *\n" +
              "************************************\n")
+
         j = Joueur()
         self.joueurs.append(j)
         j = Joueur()
@@ -74,9 +72,6 @@ class Game_board:
             print("Il y a", len(self.joueurs), "joueurs à la table\n")
         print("\nDébut de la partie\n")
         # for j in self.joueurs: j.fiche()
-        self.screen.blit(self.img_plateau,(0,0))
-        self.screen.blit(j.image, j.rect)
-        pygame.display.update()  # Or pygame.display.flip()
         
         
     def play(self):
@@ -151,25 +146,6 @@ class Game_board:
         else: # pour debug
             print("Erreur de case")
             exit()
-
-
-    # initialisation graphique du plateau
-    def _init_graphic_board(self):
-        successes, failures = pygame.init()
-        print("Initializing pygame: {0} successes and {1} failures.".format(successes, failures))
-
-        self.screen = pygame.display.set_mode((700, 700))
-        clock = pygame.time.Clock()
-        FPS = 60
-
-        BLACK = (0, 0, 0)
-        WHITE = (255, 255, 255)
-
-        self.img_plateau = pygame.image.load("images/board.png").convert()
-
-        self.screen.blit(self.img_plateau,(0,0))
-        pygame.display.update()
-
 
 
 

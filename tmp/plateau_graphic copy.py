@@ -20,7 +20,7 @@ WHITE = (255, 255, 255)
 img_plateau = pygame.image.load("images/board.png").convert()
 
 screen.blit(img_plateau,(0,0))
-pygame.display.update()
+# pygame.display.update()
 
 
 class Player(pygame.sprite.Sprite):
