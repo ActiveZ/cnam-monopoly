@@ -1,5 +1,6 @@
 import pygame
-from data import cases_data
+from random import shuffle
+from data import cases_data, pions_data
 
 
 class Joueur:
@@ -20,16 +21,12 @@ class Joueur:
         self.dernier_tirage = 0 # valeur du dernier tirage de dé, utilisé pour calcul compagnie
         self.terrains = [] # tableau des cases que possède le joueur (ex: 5 -> gare montparnasse)
         # self.is_human = True
+        
         # initialisation graphique du joueur
-        self.image = pygame.image.load("images/pion_chapeau.png")
+        self.image = self._attrib_pion()
         self.rect = self.image.get_rect()  # Get rect of some size as 'image'.
         self.rect.center = (cases_data[0]["x"], cases_data[0]["y"]) # case départ
         self.velocity = [0, 0] # [x, y]    
-
-
-    # def go(self, dice):
-    #     self.position += dice # avance de la valeur de dice
-    #     if self.position > 39: self.position -= 40 # case départ = 0
 
 
     def payer(self, montant, beneficiaire = None): # beneficiaire = none => banque, sinon => joueur
@@ -55,3 +52,9 @@ class Joueur:
     # met à jour le pion du joueur sur le plateau
     def _update(self):
         self.rect.move_ip(*self.velocity)
+
+
+    # attibution aléatoire d'un pion au joueur
+    def _attrib_pion(self):
+        shuffle(pions_data)
+        return pygame.image.load("images/" + pions_data.pop() + ".png")

@@ -1,3 +1,13 @@
+pions_data = [
+    "pion_bateau",
+    "pion_chapeau",
+    "pion_chaussure",
+    "pion_chien",
+    "pion_couture",
+    "pion_fer",
+    "pion_voiture"
+]
+
 carte_chance_data = {
     0:["Amende pour excès de vitesse", -15],
     1:["La banque vous verse un dividende de € 50",50],
@@ -16,7 +26,6 @@ carte_chance_data = {
     14:["Vous avez gagné le prix de mots croisés. Recevez € 100",100],
     15:["Vous êtes libéré de prison .Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée ou vendue.","libere"]
 }
-
 
 
 carte_caisse_communaute_data = {
@@ -450,6 +459,17 @@ proprietes_data = {
 
 # Une compagnie: 4 fois le montant des dés
 # Deux compangnies: 10 fois le montant des dés 
+
+
+# pions_data = {
+#     0: "pion_bateau",
+#     1: "pion_chapeau",
+#     2: "pion_chaussure",
+#     3: "pion_chien",
+#     4: "pion_couture",
+#     5: "pion_fer",
+#     6: "pion_voiture"
+# }
 
 
 # Nom des différentes cases 
