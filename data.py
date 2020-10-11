@@ -86,7 +86,7 @@ cases_data = {
     33:{"nom":"Caisse de Communauté", "x":654, "y":234},
     34:{"nom":"Capucines", "x":654, "y":290},
     35:{"nom":"Gare Saint-Lazare", "x":654, "y":344},
-    36:{"nom":"Carte Chance", "x":654, "y":484},
+    36:{"nom":"Carte Chance", "x":654, "y":400},
     37:{"nom":"Champs-élysées", "x":654, "y":460},
     38:{"nom":"Taxe de Luxe", "x":654, "y":518},
     39:{"nom":"La Paix", "x":654, "y":572},
