@@ -1,6 +1,7 @@
 import pygame
+from display import Display
 
-from data import cases_data
+# from data import cases_data
 from data import proprietes_data
 from data import gares_data
 from data import compagnies_data
@@ -55,8 +56,8 @@ class Game_board:
         # tableau des joueurs
         self.joueurs = []
 
-        # initialisation graphique du tableau
-        self._init_graphic_board()
+        # initialisation graphique du plateau
+        self.display = Display()
 
 
     def init_game(self):
@@ -73,10 +74,8 @@ class Game_board:
             self.joueurs.append(j)
             print("Il y a", len(self.joueurs), "joueurs à la table\n")
         print("\nDébut de la partie\n")
-        # for j in self.joueurs: j.fiche()
-        self.screen.blit(self.img_plateau,(0,0))
-        self.screen.blit(j.image, j.rect)
-        pygame.display.update()  # Or pygame.display.flip()
+        # affichage des pions des joueurs sur le plateau
+        self.display.display_players(self.joueurs)
         
         
     def play(self):
@@ -153,52 +152,14 @@ class Game_board:
             exit()
 
 
-    # initialisation graphique du plateau
-    def _init_graphic_board(self):
-        successes, failures = pygame.init()
-        print("Initializing pygame: {0} successes and {1} failures.".format(successes, failures))
-
-        self.screen = pygame.display.set_mode((700, 700))
-        clock = pygame.time.Clock()
-        FPS = 60
-
-        BLACK = (0, 0, 0)
-        WHITE = (255, 255, 255)
-
-        self.img_plateau = pygame.image.load("images/board.png").convert()
-
-        self.screen.blit(self.img_plateau,(0,0))
-        pygame.display.update()
-
-
     # déplacement du joueur j et maj graphique du plateau
     def go(self, j, dice):
         progress = dice # le joueur progresse de la valeur du lancé de dés
-
-        for i in range (progress + 1):
-            pos = j.position + i
-            c = cases_data[pos] if pos < 40 else cases_data [pos - 40]
-            while j.rect.centerx != c["x"] or j.rect.centery != c["y"]:
-                if j.rect.centerx < c["x"]: j.velocity[0] = +1
-                elif j.rect.centerx > c["x"]: j.velocity[0] = -1
-                else: j.velocity[0] = 0
-
-                if j.rect.centery < c["y"]: j.velocity[1] = +1
-                elif j.rect.centery > c["y"]: j.velocity[1] = -1
-                else: j.velocity[1] = 0
-
-                j.rect.move_ip(*j.velocity)
-
-                # print("c:", c, "x:", j.rect.centerx, "y:", j.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
-
-                self.screen.blit(self.img_plateau,(0,0))
-                self.screen.blit(j.image, j.rect)
-                pygame.display.update()  # Or pygame.display.flip()
+        self.display.update_board(j, progress, self.joueurs) # visualisation du déplacement sur le plateau
 
         j.position += progress # avance de la valeur de dice
         if j.position > 39: j.position -= 40 # case départ = 0
-
-
+        # self.display.display_players(self.joueurs)
 
 
 #############################################################################
