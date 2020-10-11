@@ -1,10 +1,7 @@
 import pygame
 from display import Display
 
-# from data import cases_data
-from data import proprietes_data
-from data import gares_data
-from data import compagnies_data
+from data import proprietes_data, gares_data, compagnies_data
 
 from dice import Dice
 
@@ -32,8 +29,6 @@ class Game_board:
         # instanciation des cartes
         self.carte_chance = Carte_chance()
         self.carte_communaute = Carte_communaute()
-
-        # self.proprietes = proprietes_data
 
         # instanciation des cases propriété
         self.proprietes = []
@@ -100,7 +95,7 @@ class Game_board:
             print("Vous avez reçu 200 € !")
 
         elif j.position in [7,22,36]:
-            self.carte_chance.tirer_carte(j) # carte chance voir si supprimer proprietes en mettant import dans chance
+            self.carte_chance.tirer_carte(j) # carte chance
             if j.replay:
                 j.replay = False
                 self.case_arrivee(j) # en cas de carte de déplacement
@@ -159,7 +154,8 @@ class Game_board:
 
         j.position += progress # avance de la valeur de dice
         if j.position > 39: j.position -= 40 # case départ = 0
-        # self.display.display_players(self.joueurs)
+
+
 
 
 #############################################################################

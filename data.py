@@ -1,13 +1,12 @@
-pions_data = {
-    0: "pion_bateau",
-    1: "pion_chapeau",
-    2: "pion_chaussure",
-    3: "pion_chien",
-    4: "pion_couture",
-    5: "pion_fer",
-    6: "pion_voiture"
-}
-
+pions_data = [
+    "pion_bateau",
+    "pion_chapeau",
+    "pion_chaussure",
+    "pion_chien",
+    "pion_couture",
+    "pion_fer",
+    "pion_voiture"
+]
 
 carte_chance_data = {
     0:["Amende pour excès de vitesse", -15],
@@ -460,6 +459,17 @@ proprietes_data = {
 
 # Une compagnie: 4 fois le montant des dés
 # Deux compangnies: 10 fois le montant des dés 
+
+
+# pions_data = {
+#     0: "pion_bateau",
+#     1: "pion_chapeau",
+#     2: "pion_chaussure",
+#     3: "pion_chien",
+#     4: "pion_couture",
+#     5: "pion_fer",
+#     6: "pion_voiture"
+# }
 
 
 # Nom des différentes cases 
