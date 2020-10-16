@@ -12,6 +12,7 @@ class Display:
         self.screen = pygame.display.set_mode((700, 700))
         clock = pygame.time.Clock()
         FPS = 60
+        self.dt = clock.tick(FPS) / 1000  # Returns milliseconds between each call to 'tick'. The convert time to seconds.
         # BLACK = (0, 0, 0)
         # WHITE = (255, 255, 255)
 
@@ -28,23 +29,78 @@ class Display:
 
 
     def update_board(self, j, progress, players):
+        print("ok update")
         for i in range (progress + 1):
             pos = j.position + i
             c = cases_data[pos] if pos < 40 else cases_data [pos - 40]
+            print("c:", c)
             while j.rect.centerx != c["x"] or j.rect.centery != c["y"]:
-                if j.rect.centerx < c["x"]: j.velocity[0] = +1
-                elif j.rect.centerx > c["x"]: j.velocity[0] = -1
-                else: j.velocity[0] = 0
+                # déplacement en x
+                if j.rect.centerx < c["x"]:
+                    while j.rect.centerx < c["x"]:
+                        j.velocity[0] = +200 * self.dt
+                        self.update_position(j, players)
 
-                if j.rect.centery < c["y"]: j.velocity[1] = +1
-                elif j.rect.centery > c["y"]: j.velocity[1] = -1
-                else: j.velocity[1] = 0
+                elif j.rect.centerx > c["x"]: 
+                    while j.rect.centerx > c["x"]: 
+                        j.velocity[0] = -200 * self.dt
+                        self.update_position(j, players)
+                
+                j.rect.centerx = c["x"]
+                self.update_position(j, players)
 
-                j.rect.move_ip(*j.velocity)
+                # déplacement en y
+                if j.rect.centery < c["y"]:
+                    while j.rect.centery < c["y"]:
+                        j.velocity[1] = +200 * self.dt
+                        self.update_position(j, players)
 
-                # print("c:", c, "x:", j.rect.centerx, "y:", j.rect.centery, "dt:", dt) # affiche les coordonnées du centre du pion
+                elif j.rect.centery > c["y"]: 
+                    while j.rect.centery > c["y"]: 
+                        j.velocity[1] = -200 * self.dt
+                        self.update_position(j, players)
 
-                self.screen.blit(self.img_plateau,(0,0))
-                self.screen.blit(j.image, j.rect)
-                for p in players: self.screen.blit(p.image, p.rect) # a optimiser ?
-                pygame.display.update()  # Or pygame.display.flip()
+                j.rect.centery = c["y"]
+                self.update_position(j, players)
+
+    
+    # met à jour le pion du joueur sur le plateau
+    def update_position(self, j, players):
+        j.rect.move_ip(*j.velocity)
+        print("x:", j.rect.centerx, "y:", j.rect.centery) # affiche les coordonnées du centre du pion
+        self.screen.blit(self.img_plateau,(0,0))
+        self.screen.blit(j.image, j.rect)
+        pygame.display.update()  # Or pygame.display.flip()
+        j.velocity[0] = 0
+        j.velocity[1] = 0        
+        self.screen.blit(self.img_plateau,(0,0))
+        self.screen.blit(j.image, j.rect)
+        for p in players: self.screen.blit(p.image, p.rect) # redessine les pions des autres joueurs
+        pygame.display.update()  # Or pygame.display.flip()
+    
+
+
+
+    
+        # def update_board(self, j, progress, players):
+        # print("ok update")
+        # for i in range (progress + 1):
+        #     pos = j.position + i
+        #     c = cases_data[pos] if pos < 40 else cases_data [pos - 40]
+        #     while j.rect.centerx != c["x"] or j.rect.centery != c["y"]:
+        #         if j.rect.centerx < c["x"]: j.velocity[0] = +1
+        #         elif j.rect.centerx > c["x"]: j.velocity[0] = -1
+        #         else: j.velocity[0] = 0
+
+        #         if j.rect.centery < c["y"]: j.velocity[1] = +1
+        #         elif j.rect.centery > c["y"]: j.velocity[1] = -1
+        #         else: j.velocity[1] = 0
+
+        #         j.rect.move_ip(*j.velocity)
+
+        #         print("c:", c, "x:", j.rect.centerx, "y:", j.rect.centery) # affiche les coordonnées du centre du pion
+
+        #         self.screen.blit(self.img_plateau,(0,0))
+        #         self.screen.blit(j.image, j.rect)
+        #         for p in players: self.screen.blit(p.image, p.rect) # a optimiser ?
+        #         pygame.display.update()  # Or pygame.display.flip()

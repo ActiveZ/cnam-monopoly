@@ -2,6 +2,7 @@ import pygame
 from random import shuffle
 from data import cases_data, pions_data
 
+mode_graphic_on = True
 
 class Joueur:
     nb_joueur = 0 # variable de classe incrémentée à chaque instanciation de joueur
@@ -23,10 +24,11 @@ class Joueur:
         # self.is_human = True
         
         # initialisation graphique du joueur
-        self.image = self._attrib_pion()
-        self.rect = self.image.get_rect()  # Get rect of some size as 'image'.
-        self.rect.center = (cases_data[0]["x"], cases_data[0]["y"]) # case départ
-        self.velocity = [0, 0] # [x, y]    
+        if mode_graphic_on :
+            self.image = self._attrib_pion()
+            self.rect = self.image.get_rect()  # Get rect of some size as 'image'.
+            self.rect.center = (cases_data[0]["x"], cases_data[0]["y"]) # case départ
+            self.velocity = [0, 0] # [x, y]    
 
 
     def payer(self, montant, beneficiaire = None): # beneficiaire = none => banque, sinon => joueur
@@ -50,8 +52,17 @@ class Joueur:
 
 
     # met à jour le pion du joueur sur le plateau
-    def _update(self):
-        self.rect.move_ip(*self.velocity)
+    # def update(self):
+    #     self.rect.move_ip(*self.velocity)
+    #     print("x:", player.rect.centerx, "y:", player.rect.centery) # affiche les coordonnées du centre du pion
+    #     screen.blit(img_plateau,(0,0))
+    #     screen.blit(player.image, player.rect)
+    #     pygame.display.update()  # Or pygame.display.flip()
+    #     player.velocity[0] = 0
+    #     player.velocity[1] = 0
+
+    # def updateOld(self):
+    #     self.rect.move_ip(*self.velocity)
 
 
     # attibution aléatoire d'un pion au joueur
