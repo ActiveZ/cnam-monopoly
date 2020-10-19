@@ -61,6 +61,7 @@ class Game_board:
              "************************************\n")
         j = Joueur()
         self.joueurs.append(j)
+        
         j = Joueur()
         self.joueurs.append(j)
         print("Il y a", len(self.joueurs), "joueurs à la table\n")
@@ -75,6 +76,8 @@ class Game_board:
         
     def play(self):
         for j in self.joueurs:
+            # j.patrimoine()
+            j.construire()
             j.fiche()
             if j.position == 40: #joueur en prison
                 self.prison.libere(j,self.carte_chance,self.carte_communaute)

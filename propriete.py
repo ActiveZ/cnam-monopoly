@@ -76,3 +76,5 @@ class Propriete:
 
             print(j.nom,"vous devez",loyer,"€ à",beneficiaire.nom)
             j.payer(loyer,beneficiaire)
+
+        
